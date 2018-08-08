@@ -48,11 +48,15 @@ class AreaController extends Controller
      */
 
     
-    public function create(Request $request)
+    public function create($id, Request $request)
     {
+        $board = Board::all()->where('board_id',$id)->first();
         $medias = Media::all();
 
-        return view('boards.mapping.create', ['medias' => $medias]);
+        $areas = Area::all()->where('fk_board_id', $id);   
+
+
+        return view('boards.mapping.create', ['medias' => $medias, 'board' => $board, 'areas' => $areas]);
     }
 
     /**
@@ -64,9 +68,6 @@ class AreaController extends Controller
     public function show($id)
     {
 
-        // $comic = Comic::all()->where('comic_id', $id)->first();  
-        // $boards = Board::all()->where('fk_comic_id',$id);
-        // return view('comics.show', ['comic' => $comic,'boards' => $boards]);
     }
 
     /**
@@ -75,7 +76,7 @@ class AreaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
             // var_dump( request('dataType'));
         // var_dump($request->all());
@@ -83,12 +84,12 @@ class AreaController extends Controller
         $area = new Area;
         $area-> area_coord = request('coords1');
         $area-> area_trigger = request('trigger');
-        $area-> fk_board_id = 1;
-        $area-> fk_media_id = 1;
+        $area-> fk_board_id = $id;
+        $area-> fk_media_id = request('dataType');
         $area->save();
 
+        return redirect()->route('mapping_create',  ['id' => $id]);
 
-        return redirect()->route('mapping_create');
     }
 
     

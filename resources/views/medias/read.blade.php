@@ -62,8 +62,6 @@ Medias
 		<div class="row justify-content-center">
 
 			@foreach ($medias as $media)
-
-
 			
 			<article class="comics_catalog">
 

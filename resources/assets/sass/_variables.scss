@@ -18,3 +18,21 @@ $danger-color:#e44949;
 	color: $main-color;
 	font-size: 20px;
 }
+
+/*=======================================================
+=           To remove dotted outline border            =
+=======================================================*/
+a, a:active, a:focus, button, button:focus, button:active, .btn, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn.focus:active, .btn.active.focus {
+	outline: none !important;
+	outline: 0 !important;
+}
+
+input::-moz-focus-inner {
+	border: 0;
+}
+
+select:-moz-focusring {
+	color: transparent;
+	text-shadow: 0 0 0 #000;
+}
+/*=====  End of To remove dotted outline border  ======*/

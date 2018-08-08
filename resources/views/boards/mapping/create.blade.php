@@ -10,7 +10,7 @@ Créer une zone
     @php if(isset($result)) echo $result; @endphp
 
     <div class="card-body area">
-        <form class="area-form" method="post" action=" {{action('AreaController@store',1)}}" enctype="multipart/form-data">
+        <form class="area-form" method="post" action=" {{action('AreaController@store', [$board->board_id])}}" enctype="multipart/form-data">
             @csrf
 
             <div class="area-form-manage">
@@ -44,15 +44,29 @@ Créer une zone
 
                 <input type="submit" class="btn-outline" value="Valider"/>
             </div>
+            <div>
+                <a class="" href="{{ route('mapping_show',[$board->board_id]) }}"><i class="material-icons">visibility</i><span>Voir toutes les zones</span></a>
+            </div>
+
             <div id="imgModif">
                 <div class="page">
-                    <textarea name="coords1" class="canvas-area input-xxlarge" placeholder="Shape Coordinates" data-image-url="/img/plancheBD.JPG" style="display: none;">
+                    <textarea name="coords1" class="canvas-area input-xxlarge" placeholder="Shape Coordinates" data-image-url="{{ $board->board_image }}" style="display: none;">
                     </textarea>
                 </div>
-            </div>
-        </form>
+                <img id="background_map" src="{{ $board->board_image }}" alt="Planets" usemap="#planetmap" class="map">
+                <map id="map_object"name="planetmap">
 
-    </div>
+                  <!-- avec/sans media -->
+                  @foreach ($areas as $zone) 
+
+                  <area id="{{ $zone->area_id }}" shape="poly" coords="{{ $zone->area_coord }}" data-maphilight='{"alwaysOn": true,"strokeColor":"0000ff","strokeWidth":2,"fillColor":"0000ff","fillOpacity":0.6}' data-style= "without-media" href="">
+
+                  @endforeach
+              </map> 
+          </div>
+      </form>
+
+  </div>
 </div>
 @endsection
 
@@ -62,6 +76,29 @@ Créer une zone
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.0.1/jquery-migrate.js"></script>
 <script src={{ asset("js/canvasAreaDraw.js") }}></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="http://davidlynch.org/projects/maphilight/jquery.maphilight.js"></script>
+
+<script>
+// //init the map for highlighting
+$('.map').maphilight();
 
 
-@endsection 
+$(document).ready(function()
+{
+  $('area').each(function() {
+
+    //   console.log($(this), 'ici');
+    var data = $(this).data('maphilight');  
+
+    $(this).data('maphilight', data).trigger('alwaysOn.maphilight');
+    $(this).click(function(){
+            //    console.log($(this))
+            //    redirige vers ./area/{id}
+        });
+});
+  
+});  
+
+</script>
+@endsection

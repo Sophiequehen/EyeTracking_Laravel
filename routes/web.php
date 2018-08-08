@@ -96,7 +96,7 @@ Route::get('/medias/destroy/{name}', 'MediasController@destroy')->name('medias_d
 Route::get('/mapping/create/{id}', 'AreaController@create')->name('mapping_create');
 Route::post('/mapping/store/{id}', 'AreaController@store');
 // /* ----------------[ READ AREAS ]---------------- */
-Route::get('/mapping/show/{idPage}', 'AreaController@fetchAssocZones')->name('mapping_show');
+Route::get('/mapping/show/{id}', 'AreaController@show')->name('mapping_show');
 // /* ----------------[ UPDATE AREAS ]---------------- */
 Route::get('/mapping/update/{idPage}', 'AreaController@edit')->name('mapping_update');
 Route::post('/mapping/update/{idPage}', 'AreaController@update');

@@ -7,20 +7,21 @@ Voir les zones
 @section('content')
 <div class="container modify">
   <div class="card-body area">
+    <div id="imgModif">
+      <img id="background_map" src="{{ $board->board_image }}" alt="Planets" usemap="#planetmap" class="map">
+      <map id="map_object"name="planetmap">
 
-    <img id="background_map" src="{{ $board->board_image }}" alt="Planets" usemap="#planetmap" class="map">
-    <map id="map_object"name="planetmap">
+        <!-- avec/sans media -->
+        @foreach ($areas as $zone) 
 
-      <!-- avec/sans media -->
-      @foreach ($areas as $zone) 
+        <area id="{{ $zone->area_id }}" shape="poly" coords="{{ $zone->area_coord }}" data-maphilight='{"alwaysOn": true,"strokeColor":"0000ff","strokeWidth":2,"fillColor":"0000ff","fillOpacity":0.6}' data-style= "without-media" href="">
 
-      <area id="{{ $zone->area_id }}" shape="poly" coords="{{ $zone->area_coord }}" data-maphilight='{"alwaysOn": true,"strokeColor":"0000ff","strokeWidth":2,"fillColor":"0000ff","fillOpacity":0.6}' data-style= "without-media" href="">
-
-      @endforeach
-    </map>  
-
+        @endforeach
+      </map>  
+    </div>
   </div>
 </div>
+<a class="btn-add-bd" href="{{ route('mapping_create',[$board->board_id]) }}"><i class="material-icons">add</i><span>Ajouter des zones</span></a>
 @endsection
 
 <!-- <map id="map_object"name="planetmap"> -->

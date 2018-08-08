@@ -67,7 +67,11 @@ class AreaController extends Controller
      */
     public function show($id)
     {
+        $board = Board::all()->where('board_id',$id)->first();
+        $medias = Media::all();
+        $areas = Area::all()->where('fk_board_id', $id); 
 
+        return view('boards.mapping.show', ['medias' => $medias, 'board' => $board, 'areas' => $areas]);
     }
 
     /**

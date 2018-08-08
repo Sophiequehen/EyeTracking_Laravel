@@ -44,25 +44,23 @@ Créer une zone
 
                 <input type="submit" class="btn-outline" value="Valider"/>
             </div>
-            <div>
-                <a class="" href="{{ route('mapping_show',[$board->board_id]) }}"><i class="material-icons">visibility</i><span>Voir toutes les zones</span></a>
-            </div>
 
             <div id="imgModif">
+                <div class="see-all">
+                    <a class="" href="{{ route('mapping_show',[$board->board_id]) }}"><i class="material-icons">visibility</i><span>Voir toutes les zones</span></a>
+                </div>
                 <div class="page">
                     <textarea name="coords1" class="canvas-area input-xxlarge" placeholder="Shape Coordinates" data-image-url="{{ $board->board_image }}" style="display: none;">
                     </textarea>
                 </div>
-                <img id="background_map" src="{{ $board->board_image }}" alt="Planets" usemap="#planetmap" class="map">
+
+                <!-- To see all areas on another board but scaling doesn't work -->
+                <!-- <img id="background_map" src="{{ $board->board_image }}" alt="Planets" usemap="#planetmap" class="map">
                 <map id="map_object"name="planetmap">
-
-                  <!-- avec/sans media -->
                   @foreach ($areas as $zone) 
-
                   <area id="{{ $zone->area_id }}" shape="poly" coords="{{ $zone->area_coord }}" data-maphilight='{"alwaysOn": true,"strokeColor":"0000ff","strokeWidth":2,"fillColor":"0000ff","fillOpacity":0.6}' data-style= "without-media" href="">
-
                   @endforeach
-              </map> 
+              </map>  -->
           </div>
       </form>
 
@@ -78,27 +76,25 @@ Créer une zone
 <script src={{ asset("js/canvasAreaDraw.js") }}></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script src="http://davidlynch.org/projects/maphilight/jquery.maphilight.js"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.0.1/jquery-migrate.js"></script>
 <script>
 // //init the map for highlighting
 $('.map').maphilight();
 
-
-$(document).ready(function()
-{
-  $('area').each(function() {
-
-    //   console.log($(this), 'ici');
-    var data = $(this).data('maphilight');  
-
-    $(this).data('maphilight', data).trigger('alwaysOn.maphilight');
-    $(this).click(function(){
+$(document).ready(function(){
+    $('area').each(function(){
+        //   console.log($(this), 'ici');
+        var data = $(this).data('maphilight');  
+        $(this).data('maphilight', data).trigger('alwaysOn.maphilight');
+        $(this).click(function(){
             //    console.log($(this))
             //    redirige vers ./area/{id}
         });
+    });
 });
-  
-});  
-
+</script>
+<script>
+//To scale areas to their image
+imageMapResize();
 </script>
 @endsection

@@ -1,0 +1,40 @@
+.container.modify{
+
+	#imgModif{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		.see-all{
+			a{
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				text-decoration: none;
+
+				i{
+					margin-right: 10px;
+				}
+			}
+		}
+		.page{
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+
+			button#clearButton{
+				border: 1px solid #dc3545;
+				color: #dc3545;
+				transition: 0.5s;
+				background: none;
+			}
+			button#clearButton:hover{
+				border: 1px solid #dc3545;
+				color: white;
+				background: #dc3545;
+				transition: 0.5s;
+			}
+		}
+
+	}
+}

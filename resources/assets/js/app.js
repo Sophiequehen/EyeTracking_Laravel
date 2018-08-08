@@ -11,6 +11,7 @@
  require('./updateComic');
  require('./createMedia');
  require('./legal');
+ require('./imageMapResizer.min');
 
  // console.log('ok');
 

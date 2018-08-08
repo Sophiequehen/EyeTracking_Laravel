@@ -1,62 +1,50 @@
 @extends('layout.app')
+
 @section('title')
-stuff
+Voir les zones
 @endsection
+
 @section('content')
+<div class="container modify">
+  <div class="card-body area">
 
-<!-- C'est cassé :/ Manque jquery  -->
-<div id="appModif">
-  <section id="sectionModifBoard">
-    <div class="row">
+    <img id="background_map" src="/img/plancheBD.JPG" alt="Planets" usemap="#planetmap" class="map">
+    <map id="map_object"name="planetmap">
 
-      <div class="col-4">
-       
-        <button type="button" class="btn btn-outline-secondary" id="buttonModifZone">Créer une zone</button> 
+      <!-- avec/sans media -->
+      @foreach ($areas as $zone) 
 
-      </div>
-      <div class="col-8">
-        <img id="background_map" src="/img/plancheBD.jpg" alt="Planets" usemap="#planetmap" class="map">
-        <map id="map_object"name="planetmap">
+      <area id="{{ $zone->area_id }}" shape="poly" coords="{{ $zone->area_coord }}" data-maphilight='{"alwaysOn": true,"strokeColor":"0000ff","strokeWidth":2,"fillColor":"0000ff","fillOpacity":0.6}' data-style= "without-media" href="">
 
-          <!-- avec/sans media -->
-          @foreach ($areas as $zone) 
+      @endforeach
+    </map>  
 
-
-          <area id="{{ $zone->area_id }}" shape="poly" coords="{{ $zone->area_coord }}" data-maphilight='{"alwaysOn": true,"strokeColor":"0000ff","strokeWidth":2,"fillColor":"0000ff","fillOpacity":0.6}' data-style= "without-media" href="" >
-
-          @endforeach
-
-        </map>  
-
-        {{-- <map id="map_object"name="planetmap">
-
-          <!-- avec/sans media -->
-          @foreach ($areas as $zone) 
-          {{$zone->are_coord}}
-          @if ( $zone-> has_media == 0 )
-          <area id="{{ $zone->are_oid }}" shape="poly" coords="{{ $zone->are_coord }}" data-maphilight='{"alwaysOn": true,"strokeColor":"FE2E2E","strokeWidth":2,"fillColor":"FE2E2E","fillOpacity":0.6}' data-style= "without-media" href="" >
-          @endif
-          @if ( $zone-> has_media >= 1 )
-          <area id="{{ $zone->are_oid }}" shape="poly" coords="{{ $zone->are_coord }}" data-maphilight='{"alwaysOn": true,"strokeColor":"0000ff","strokeWidth":2,"fillColor":"0000ff","fillOpacity":0.6}' data-style= "without-media" href="" >
-          @endif
-          @endforeach
-
-        </map>   --}}
-      </div>
-      
-    </div>
-  </section>
+  </div>
 </div>
 
+<!-- <map id="map_object"name="planetmap"> -->
+  <!-- avec/sans media -->
+          <!-- @foreach ($areas as $zone) 
+          {{$zone->are_coord}}
+          @if ( $zone-> has_media == 0 ) -->
+          <!-- <area id="{{ $zone->are_oid }}" shape="poly" coords="{{ $zone->are_coord }}" data-maphilight='{"alwaysOn": true,"strokeColor":"FE2E2E","strokeWidth":2,"fillColor":"FE2E2E","fillOpacity":0.6}' data-style= "without-media" href="" > -->
+          <!-- @endif
+            @if ( $zone-> has_media >= 1 ) -->
+            <!-- <area id="{{ $zone->are_oid }}" shape="poly" coords="{{ $zone->are_coord }}" data-maphilight='{"alwaysOn": true,"strokeColor":"0000ff","strokeWidth":2,"fillColor":"0000ff","fillOpacity":0.6}' data-style= "without-media" href="" > -->
+          <!-- @endif
+            @endforeach -->
+            <!-- </map> -->
 
 
-@endsection
+
+            @endsection
 
 
-@section('extraJS')
-<script src="http://davidlynch.org/projects/maphilight/jquery.maphilight.js"></script>
+            @section('extraJS')
+            <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+            <script src="http://davidlynch.org/projects/maphilight/jquery.maphilight.js"></script>
 
-<script  >
+            <script  >
 
 
 // //init the map for highlighting

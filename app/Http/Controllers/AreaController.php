@@ -64,6 +64,9 @@ class AreaController extends Controller
     public function show($id)
     {
 
+        // $comic = Comic::all()->where('comic_id', $id)->first();  
+        // $boards = Board::all()->where('fk_comic_id',$id);
+        // return view('comics.show', ['comic' => $comic,'boards' => $boards]);
     }
 
     /**
@@ -85,7 +88,7 @@ class AreaController extends Controller
         $area->save();
 
 
-        return redirect()->route('mapping-create');
+        return redirect()->route('mapping_create');
     }
 
     

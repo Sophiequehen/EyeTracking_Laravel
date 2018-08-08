@@ -92,21 +92,16 @@ Route::get('/medias/destroy/{name}', 'MediasController@destroy')->name('medias_d
 | MAPPING
 |--------------------------------------------------------------------------
 */
-/* ----------------[ CREATE AND UPDATE MAPPING ]---------------- */
-
-Route::get('/mapping/read/{idPage}', 'AreaController@fetchAssocZones')->name('modifBoard');
-
-Route::get('/mapping/create', 'AreaController@create')->name('mapping-create');
-Route::post('/mapping/store', 'AreaController@store')->name('mappingStore');
-
-/* ----------------[ READ MAPPING ]---------------- */
-// FROM FRONT : this route is used to show the sample board with sounds
-// Remove this line and board_mapping.blade.php
-Route::get('/test', function () {
-	return view('board_mapping');
-})->name('board_mapping');
+// /* ----------------[ CREATE AND STORE AREAS ]---------------- */
+Route::get('/mapping/create', 'AreaController@create')->name('mapping_create');
+Route::post('/mapping/store', 'AreaController@store');
+// /* ----------------[ READ AREAS ]---------------- */
+Route::get('/mapping/show/{idPage}', 'AreaController@fetchAssocZones')->name('mapping_show');
+// /* ----------------[ UPDATE AREAS ]---------------- */
+Route::get('/mapping/update/{idPage}', 'AreaController@edit')->name('mapping_update');
+Route::post('/mapping/update/{idPage}', 'AreaController@update');
 /* ----------------[ DELETE MAPPING ]---------------- */
-// not done
+Route::get('/mapping/delete/{idPage}', 'AreaController@destroy')->name('mapping_delete');
 
 
 // IMPORTANT 

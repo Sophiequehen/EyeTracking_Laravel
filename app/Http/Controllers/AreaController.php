@@ -71,6 +71,8 @@ class AreaController extends Controller
         $medias = Media::all();
         $areas = Area::all()->where('fk_board_id', $id); 
 
+        // return view('boards.mapping.show', compact('medias'), compact('areas'), ['medias' => $medias, 'board' => $board, 'areas' => $areas]);
+
         return view('boards.mapping.show', ['medias' => $medias, 'board' => $board, 'areas' => $areas]);
     }
 

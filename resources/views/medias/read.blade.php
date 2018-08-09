@@ -79,7 +79,7 @@ Medias
 				@endif
 
 				<div class="card-body">
-					<p class="card-filename">Nom du fichier :</p>
+					<!-- <p class="card-filename">Nom du fichier :</p> -->
 					<h5 class="card-title">{{ $media->media_filename }}</h5>
 					<p class="card-text">Type de fichier : {{ $media->media_type }}</p>
 					<a href="{{ route('medias_delete', ['id' => $media->media_id]) }}" class="btn-catalogue">Supprimer</a>

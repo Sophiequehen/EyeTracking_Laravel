@@ -15,7 +15,8 @@ class RoleTableSeeder extends Seeder
 
         $roles = [
             ['role_id' => 1, 'role_rolename' => 'admin', 'created_at' => date('Y-m-d H:i:s'),  'updated_at' => date('Y-m-d H:i:s')],
-            ['role_id' => 2, 'role_rolename' => 'client', 'created_at' => date('Y-m-d H:i:s'),  'updated_at' => date('Y-m-d H:i:s')],
+            ['role_id' => 2, 'role_rolename' => 'lecteur', 'created_at' => date('Y-m-d H:i:s'),  'updated_at' => date('Y-m-d H:i:s')],
+            ['role_id' => 3, 'role_rolename' => 'superadmin', 'created_at' => date('Y-m-d H:i:s'),  'updated_at' => date('Y-m-d H:i:s')],
         ];
 
         Role::insert($roles);

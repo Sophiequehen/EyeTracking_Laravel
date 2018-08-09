@@ -15,6 +15,7 @@
 </head>
 
 <body>
+    <!-- If we are connected -->
     @auth
     <div id="content" class="content">
         <header>
@@ -23,6 +24,7 @@
         </header>
         @yield('content')
     </div>
+    
     @else
     @include('auth/login')
     @endauth

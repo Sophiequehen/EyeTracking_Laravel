@@ -13,11 +13,12 @@ class UserTableSeeder extends Seeder
     public function run()
     {
         $users = [
-            ['id' => 1, 'name' => 'Paul Auchon', 'email' => 'paulauchon@gmail.com', 'password' => bcrypt('secret'), 'remember_token' => NULL, 'created_at' => date('Y-m-d H:i:s'),  'updated_at' => date('Y-m-d H:i:s')],
-            ['id' => 2, 'name' => 'Joe Bidjoba', 'email' => 'joebidjoba@gmail.com', 'password' => bcrypt('secret'), 'remember_token' => NULL, 'created_at' => date('Y-m-d H:i:s'),  'updated_at' => date('Y-m-d H:i:s')],
-            ['id' => 3, 'name' => 'Gina Forka', 'email' => 'ginaforka@gmail.com', 'password' => bcrypt('secret'), 'remember_token' => NULL, 'created_at' => date('Y-m-d H:i:s'),  'updated_at' => date('Y-m-d H:i:s')],
-            ['id' => 4, 'name' => 'Lara Pasternak', 'email' => 'larapasternak@gmail.com', 'password' => bcrypt('secret'), 'remember_token' => NULL, 'created_at' => date('Y-m-d H:i:s'),  'updated_at' => date('Y-m-d H:i:s')],
-            ['id' => 5, 'name' => 'Joan Baez', 'email' => 'joanbaez@gmail.com', 'password' => bcrypt('secret'), 'remember_token' => NULL, 'created_at' => date('Y-m-d H:i:s'),  'updated_at' => date('Y-m-d H:i:s')],
+            ['id' => 1, 'fk_role_id' => 3, 'name' => 'Sophie Quehen', 'email' => 'sophie.quehen@gmail.com', 'password' => bcrypt('secret'), 'remember_token' => NULL, 'created_at' => date('Y-m-d H:i:s'),  'updated_at' => date('Y-m-d H:i:s')],
+            ['id' => 2, 'fk_role_id' => 3, 'name' => 'Romaric Defrance', 'email' => 'romaric@calyxen.com', 'password' => bcrypt('secret'), 'remember_token' => NULL, 'created_at' => date('Y-m-d H:i:s'),  'updated_at' => date('Y-m-d H:i:s')],
+            ['id' => 3, 'fk_role_id' => 1, 'name' => 'Nico Fer', 'email' => 'nico.ferreira.web@gmail.com', 'password' => bcrypt('secret'), 'remember_token' => NULL, 'created_at' => date('Y-m-d H:i:s'),  'updated_at' => date('Y-m-d H:i:s')],
+            ['id' => 4, 'fk_role_id' => 1, 'name' => 'Arthur Epineau', 'email' => 'arthurepi64@gmail.com', 'password' => bcrypt('secret'), 'remember_token' => NULL, 'created_at' => date('Y-m-d H:i:s'),  'updated_at' => date('Y-m-d H:i:s')],
+            ['id' => 5, 'fk_role_id' => 2, 'name' => 'Kris Tell', 'email' => 'christellelocque@hotmail.fr', 'password' => bcrypt('secret'), 'remember_token' => NULL, 'created_at' => date('Y-m-d H:i:s'),  'updated_at' => date('Y-m-d H:i:s')],
+            
         ];
 
         User::insert($users);

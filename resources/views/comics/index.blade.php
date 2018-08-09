@@ -69,14 +69,21 @@ Catalogue
       <ul>
         <li>{{$comic->comic_title}}</li>
         <li>{{$comic->comic_author}}</li>
-        <li>{{$comic->comic_publisher}}</li>
+        <!-- <li>{{$comic->comic_publisher}}</li> -->
+        @foreach ($users as $user)
+        @if($user->id === $comic->fk_user_id)
+        <li>Ajoutée par {{ $user->name }}</li>  
+        @endif 
+        @endforeach    
       </ul>
 
     </div>
     <div class="read_edit_catalog">
 
-      <!-- HERE THE IF FOR ADMIN + MODIFY BUTTON -->
-      <a  href="{{ route ('comics_update', $comic->comic_id ) }} "  id="button_edit_catalog"><button class="btn-catalogue">Modifier</button></a>
+      @if($comic->fk_user_id === Auth::user()->id || Auth::user()->fk_role_id === 3) 
+      <a  href="{{ route ('comics_update', $comic->comic_id ) }}" id="button_edit_catalog"><button class="btn-catalogue">Modifier</button></a>
+      @endif 
+
     </div>
   </article>
   @endforeach

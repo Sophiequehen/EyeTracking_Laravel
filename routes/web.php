@@ -29,7 +29,7 @@ Route::get('/legalmentions', function () {
 /* ----------------[ CREATE COMICS ]---------------- */
 // FROM BACK : This is the form, and on submit the ::post is called
 Route::get('/comics/create', 'ComicsController@create')->name('comics_create');
-Route::post('/comics/store', 'ComicsController@store');
+Route::post('/comics/store/{id}', 'ComicsController@store');
 /* ----------------[ READ COMICS ]---------------- */
 Route::get('/comics/index', 'ComicsController@index')->name('comics_index');
 Route::get('/comics/show/{id}', 'ComicsController@show')->name('comics_show');

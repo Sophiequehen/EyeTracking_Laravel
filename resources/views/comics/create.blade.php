@@ -7,7 +7,7 @@ Ajouter Bande dessinée
 @section('content')
 <div class="container modify">
 
-    <form method="POST" enctype="multipart/form-data" action="{{ action('ComicsController@store') }}" >
+    <form method="POST" enctype="multipart/form-data" action="{{ action('ComicsController@store', [Auth::user()->id] )}}" >
         @csrf
         <section class="page-titles">
             <h2>Ajouter une Bande Dessinée</h2>
@@ -22,6 +22,9 @@ Ajouter Bande dessinée
 
         <label for="auteur">Nom de l'auteur :</label>
         <input type="text" id="auteur" name="auteur" required />
+
+        <label for="auteur">Description :</label>
+        <textarea type="text" id="description" name="description" required></textarea>
 
         <p class="label-miniature">Miniature :</p>
         <div class="contain-miniature">

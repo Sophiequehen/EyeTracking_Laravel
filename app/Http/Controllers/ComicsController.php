@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Comic;
 use App\Board;
+use App\User;
 
 
 /*
@@ -26,9 +27,10 @@ class ComicsController extends Controller
     public function index()
     {
         // $comics = Comic::all()->where('comic_publication',1); // a remettre quand on aura la connexion
+        $users = User::all();
         $comics = Comic::all();
 
-        return view('comics.index', ['comics' => $comics]);
+        return view('comics.index', ['comics' => $comics, 'users' => $users]);
     }
 
     /**
@@ -62,7 +64,7 @@ class ComicsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
         //store dans le dossier public, le fichier 'miniature'
         $originalName = $request->file('miniature')->getClientOriginalName();
@@ -72,10 +74,13 @@ class ComicsController extends Controller
         $path = substr($pathstart, 7);
         
         $comics = new Comic;
+        $comics-> fk_user_id = $id;
         $comics-> comic_title = request('titre');
         $comics-> comic_author = request('auteur');
         $comics-> comic_publisher = request('editeur');
+        $comics-> comic_description = request('description');
         $comics-> comic_miniature_url = '/storage/miniatures/'.$originalName;
+
 
         // verification pour éviter la duplication de comic
         $verif_comic = Comic::all()->where('comic_title',$comics-> comic_title)
@@ -119,6 +124,8 @@ class ComicsController extends Controller
         $comic-> comic_title = request('titre');
         $comic-> comic_author = request('auteur');
         $comic-> comic_publisher = request('editeur');
+        $comic-> comic_description = request('description');
+
 
         //publication
         if (request('publication') === 'on') {

@@ -13,10 +13,9 @@
 	</div>
 	<a href="{{ url('/') }}">Accueil</a>
 	<a href="{{ route('comics_index') }}">Catalogue</a>
+	@if(Auth::user()->fk_role_id === 1 || Auth::user()->fk_role_id === 3) 
 	<a href="{{ route('medias') }}">Médias</a>
-	<a href="{{ url('/legalmentions') }}">Mentions Légales</a>
-	{{-- @if (Auth::check())
-		<a href="{{ url('/medias') }}">Médias</a>
-		@endif --}}
-	</div>
+	@endif
+	<a href="{{ url('/legalmentions') }}">À propos</a>
+</div>
 

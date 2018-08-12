@@ -1,0 +1,89 @@
+  .eyes-logo-container {
+    display: flex;
+    justify-content: space-between;
+    width: 80px;
+    height: 50px;
+
+    .eye {
+      display: none;
+      transform: rotate(45deg);
+      position: relative;
+      display: inline-block;
+      border-radius: 50%;
+      height: 30px;
+      width: 30px;
+      background: #ff9315;
+      border: 5px solid #333;
+      transition: 0.1s;
+    }
+
+    .eye:after { /*iris*/
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      width: 13px;
+      height: 13px;
+      background: #333;
+      border-radius: 50%;
+      content: " ";
+      transition: 0.1s;
+    }
+
+    .eyeclosed{
+      margin-top: 5px;
+      transform: rotate(135deg);
+      position: relative;
+      display: none;
+      border-radius: 50%;
+      height: 20px;
+      width: 20px;
+      background: #333;
+      transition: 0.1s;
+      border-radius: 0 50px;
+    }
+    
+    .lashes{
+      width: 15px;
+      height: 10px;
+      border-style: solid;
+      border-width: 0 5px 0 5px;
+      border-color: #333;
+    }
+
+    .right{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      .eye{
+        margin-right: 10px;
+      }
+      .lashes{
+        transform: rotate(40deg);
+      }
+      .eyeclosed{
+        margin-right: 14px;
+      }
+    }
+
+    .left{
+      .eye{
+        margin-left: 10px;
+      }
+      .lashes{
+        transform: rotate(-40deg);
+      }
+      .eyeclosed{
+        margin-left: 14px;
+      }
+    }
+  }
+
+  .eyes-logo-container:hover > .right .eye, .eyes-logo-container:hover > .left .eye{
+    display: none;
+    transition: 0.5s;
+  }
+
+  .eyes-logo-container:hover > .right .eyeclosed, .eyes-logo-container:hover > .left .eyeclosed{
+    display: block;
+    transition: 0.5s;
+  }

@@ -6,7 +6,7 @@
  require('./bootstrap');
  require('jquery');
 
-
+ require('./eyesLogo');
  require('./miniatureBrowse');
  require('./updateComic');
  require('./createMedia');

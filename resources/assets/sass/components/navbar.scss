@@ -3,29 +3,30 @@
     height: auto;
     display: flex;
     justify-content: center;
-    .navbar-img{
-        width: 30px;
-        margin-right: 50px;
+    align-items: center;
+    // .navbar-img{
+        //     width: 30px;
+        //     margin-right: 50px;
+        // }
     }
-}
 
-#navbar a {
-    font-family: $main-font;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    display: flex;
-    text-decoration: none;
-    padding: 20px 50px;
-    margin-top: auto;
-    margin-bottom: auto;
-    color: rgba(0, 0, 0, 0.8);
-    transition: 1s;
-}
+    #navbar a {
+        font-family: $main-font;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        display: flex;
+        text-decoration: none;
+        padding: 20px 50px;
+        margin-top: auto;
+        margin-bottom: auto;
+        color: rgba(0, 0, 0, 0.8);
+        transition: 1s;
+    }
 
-#navbar a:hover {
-    text-decoration: none;
-    color: rgba(0, 0, 0, 0.5);
-    transition: 1s;
-}
+    #navbar a:hover {
+        text-decoration: none;
+        color: rgba(0, 0, 0, 0.5);
+        transition: 1s;
+    }

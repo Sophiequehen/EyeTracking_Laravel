@@ -1,23 +1,23 @@
 @extends('layout.app')
 
 @section('title')
-Mentions Légales
+À propos
 @endsection
 
 @section('content')
 <div class="contain-header">
     <div class="header-comic">
         <section class="page-titles">
-            <h2>Mentions légales</h2>
+            <h2>À propos</h2>
             <p>/</p>
         </section>
 
         <ul class="nav-comic">
-            <li class="selected-tab" id="donnees">DONNÉES SOCIÉTÉ</li>
+            <li class="selected-tab" id="donnees">CONTACT</li>
             <li class="slash">/</li>
-            <li id="propriete">PROPRIÉTÉ INTELLECTUELLE</li>
+            <li id="propriete">MENTIONS LÉGALES</li>
             <li class="slash">/</li>
-            <li id="publication">PUBLICATION-HÉBERGEMENTS</li>
+            <li id="publication">HÉBERGEMENT</li>
         </ul>
     </div>
 </div>

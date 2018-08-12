@@ -15,16 +15,17 @@
 			width: 100%;
 			display: flex;
 			justify-content: space-around;
+			align-items: center;
 			list-style: none;
 			li{
 				font-weight: 700;
 				cursor: pointer;
-				transition: 0.5s;
+				transition: 0.2s;
 			}
 
 			li:hover{
 				color: $main-color;
-				transition: 0.5s;
+				transition: 0.2s;
 			}
 
 			.slash{
@@ -38,6 +39,9 @@
 	form{
 		margin-top: 0;
 		font-family: $main-font;
+		input{
+			text-indent: 0;
+		}
 		label, p.label-miniature{
 			font-size: large;
 			width: 100%;

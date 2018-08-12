@@ -18,9 +18,11 @@
 			}
 		}
 		.page{
+			background: blue;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
+			width: 700px;
 
 			button#clearButton{
 				border: 1px solid #dc3545;

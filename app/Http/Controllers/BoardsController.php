@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Storage;
 use DB;
 use App\Board;
 use App\Comic;
+use App\Area; 
+use App\Media; 
+
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +29,7 @@ class BoardsController extends Controller
      */
     public function index()
     {   
-        
+
     }
 
     /**
@@ -50,7 +53,7 @@ class BoardsController extends Controller
      */
     public function create($idBD, Request $request)
     {
-        
+
     }
 
     /**
@@ -65,7 +68,7 @@ class BoardsController extends Controller
         $numeroPage = request('numero-board');
 
         // try-catch de la requête
-       try {
+        try {
            // récupère le nom du fichier uploadé
             $originalName = $request->file('board-image')->getClientOriginalName();
             $completePath = $request->file('board-image')->storeAs('public/boards/', $originalName);
@@ -79,24 +82,24 @@ class BoardsController extends Controller
             $board-> fk_comic_id = $idBD;
             
             $board->save();
-                
+
             $message = "Page {$numeroPage} ajoutée";
         } catch (QueryException $e) { // affiche une erreur si le fichier est en doublon
             $error_code = $e->errorInfo[1];
              if($error_code == 1062){ // 1062 est le code d'erreur pour un duplicate sur col definie en unique
-                $message = "La page {$numeroPage} existe déjà";
-            }
+             $message = "La page {$numeroPage} existe déjà";
+         }
             if($error_code == 1452){ // 1452 est le code d'erreur généré lorque l'id de la BDn'existe pas
             
-                $message = "La BD numéro {$idBD} n'existe pas";
-            }
+            $message = "La BD numéro {$idBD} n'existe pas";
         }
-        
-        // redirection sur la même page
-        return redirect()->back()->with('add', $message);
     }
 
-    
+        // redirection sur la même page
+    return redirect()->back()->with('add', $message);
+}
+
+
 
     /**
      * Show the form for editing the specified resource.
@@ -107,8 +110,10 @@ class BoardsController extends Controller
     {
         $comic = Comic::all()->where('comic_id', $idBD)->first();  
         $board = Board::all()->where('board_id',$idPage)->first();
+        $medias = Media::all();
+        $areas = Area::all()->where('fk_board_id', $idPage); 
 
-        return view('boards.edit', ['comic' => $comic,'board' => $board]);
+        return view('boards.edit', ['comic' => $comic, 'medias' => $medias, 'areas' => $areas, 'board' => $board]);
     }
 
     /**

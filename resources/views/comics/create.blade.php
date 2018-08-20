@@ -24,7 +24,7 @@ Ajouter Bande dessinée
         <input type="text" id="auteur" name="auteur" required />
 
         <label for="auteur">Description :</label>
-        <textarea type="text" id="description" name="description" required></textarea>
+        <textarea type="text" id="description" name="description" placeholder="N'oubliez pas de préciser vos noms à la fin de la description ;)" required></textarea>
 
         <p class="label-miniature">Miniature :</p>
         <div class="contain-miniature">

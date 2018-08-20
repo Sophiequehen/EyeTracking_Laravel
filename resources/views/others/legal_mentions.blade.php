@@ -12,7 +12,7 @@
             <p>/</p>
         </section>
 
-        <ul class="nav-comic">
+        <ul class="nav-comic legal">
             <li class="selected-tab" id="donnees">CONTACT</li>
             <li class="slash">/</li>
             <li id="propriete">MENTIONS LÉGALES</li>

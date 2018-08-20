@@ -1,0 +1,26 @@
+.comic-presentation{
+	display: flex;
+	justify-content: center;
+	margin: 30px 0 70px 0;
+	&-img{
+		width: 370px;
+	}
+	.descriptif{
+		text-align: left;
+		padding-left: 50px;
+		p.title{
+			margin-bottom: 30px;
+			color: #212529;
+			font-family: $display-font;
+			font-size: 1.5rem;
+		}
+		p.paragraph{
+			padding-left: 50px;
+			width: 500px;
+			height: auto;
+			border-left: 5px solid #212529;
+			color: #212529;
+			font-size: 1rem;
+		}
+	}
+}

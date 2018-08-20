@@ -23,13 +23,13 @@
 		justify-content:center;
 		flex-direction:column;
 		background:white;
-		width:100px;
+		width:150px;
 		box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 		margin:5px;
 
 		img {
-			width:100px;
-			height:140px;
+			width:150px;
+			height:210px;
 			object-fit:cover;
 		}
 
@@ -50,4 +50,31 @@
 		width:700px;
 	}
 
+}
+
+.container.modify.board-edit{
+	#imgModif{
+		display: flex;
+		align-items: flex-start;
+		flex-direction: row;
+		justify-content: center;
+		.link-add-area, .link-see-areas{
+			text-decoration: none;
+			margin-top: 80px;
+			color: $main-color;
+			font-size: 1.2rem;
+			display: flex;
+			i{
+				margin-right: 10px;
+				font-size: 1.8rem;
+			}
+		}
+		.link-add-area{
+			transform: rotate(90deg);
+		}
+		.link-see-areas{
+			margin-top: 95px;
+			transform: rotate(270deg);
+		}
+	}
 }

@@ -23,23 +23,26 @@
 </div>
 
 <div class="container legal">
-    <div id="societe">
-        <ins>Éditeur du Site :</ins> <br />
-        <mark>[nom du site]</mark> Numéro de SIRET : <mark>[0000000]</mark><br />
-        Responsable éditorial : <mark>[………...]</mark><br />
-        <mark>[adresse de l’éditeur]</mark><br />
-        Téléphone : <mark>[000000]</mark><br />
-        Fax : <mark>[00000000000000]</mark><br />
-        Email : <mark>[……...@……………..]</mark><br />
-        Site Web : <mark>[url du site]</mark><br />
-        <ins>Hébergement :</ins> <br />
-        Hébergeur : <mark>[nom hebergeur]</mark><br />
-        <mark>[adresse hebergeur]</mark><br />
-        Site Web :<mark>[url du site]</mark><br />
-        <ins>Développement :</ins> <br />
-        <mark>[nom société]</mark><br />
-        Adresse : <mark>[adresse société]</mark><br />
-        Site Web :<mark>[url du site Web]</mark><br />
+    <div id="societe" class="societe">
+        <p class="societe-nom">CALYXEN - Romaric Defrance</p>
+        <div class="societe-infos">
+            <div>
+                <i class="material-icons">phone</i>
+                <p class="societe-title">- Téléphone -</p>
+                <p class="societe-phone">05 65 35 22 59</p>
+                <i class="material-icons down">location_on</i>
+                <p class="societe-title">- Adresse -</p>
+                <p class="societe-address">46 240 Montfaucon</p>
+            </div>
+            <div>
+                <i class="material-icons">smartphone</i>
+                <p class="societe-title">- Portable -</p>
+                <p class="societe-cellphone">06 15 41 60 43</p>
+                <i class="material-icons down">mail</i>
+                <p class="societe-title">- Email -</p>
+                <p class="societe-mail">romaric@calyxen.com</p>
+            </div>
+        </div>
     </div>
 
 
@@ -59,6 +62,23 @@
     </div>
 
     <div id="hebergement" class="display-none">
+        <ins>Éditeur du Site :</ins> <br />
+        <mark>[nom du site]</mark> Numéro de SIRET : <mark>[0000000]</mark><br />
+        Responsable éditorial : <mark>[………...]</mark><br />
+        <mark>[adresse de l’éditeur]</mark><br />
+        Téléphone : <mark>[000000]</mark><br />
+        Fax : <mark>[00000000000000]</mark><br />
+        Email : <mark>[……...@……………..]</mark><br />
+        Site Web : <mark>[url du site]</mark><br />
+        <ins>Hébergement :</ins> <br />
+        Hébergeur : <mark>[nom hebergeur]</mark><br />
+        <mark>[adresse hebergeur]</mark><br />
+        Site Web :<mark>[url du site]</mark><br />
+        <ins>Développement :</ins> <br />
+        <mark>[nom société]</mark><br />
+        Adresse : <mark>[adresse société]</mark><br />
+        Site Web :<mark>[url du site Web]</mark><br />
+
         Ce site (<mark>[url du site Web]</mark>) est proposé en différents langages web (HTML, HTML5, Javascript, CSS, etc…) pour un meilleur confort d’utilisation et un graphisme plus agréable, nous vous recommandons de recourir à des navigateurs modernes comme Internet explorer, Safari, Firefox, Google Chrome, etc…<br />
         L’agence <mark>[nom société]</mark> met en œuvre tous les moyens dont elle dispose, pour assurer une information fiable et une mise à jour fiable de ses sites internet. Toutefois, des erreurs ou omissions peuvent survenir. L’internaute devra donc s’assurer de l’exactitude des informations auprès de , et signaler toutes modifications du site qu’il jugerait utile. n’est en aucun cas responsable de l’utilisation faite de ces informations, et de tout préjudice direct ou indirect pouvant en découler.
         Cookies : Le site <mark>[url du site Web]</mark> peut-être amené à vous demander l’acceptation des cookies pour des besoins de statistiques et d’affichage. Un cookies est une information déposée sur votre disque dur par le serveur du site que vous visitez. Il contient plusieurs données qui sont stockées sur votre ordinateur dans un simple fichier texte auquel un serveur accède pour lire et enregistrer des informations . Certaines parties de ce site ne peuvent être fonctionnelles sans l’acceptation de cookies.<br />

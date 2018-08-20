@@ -1,7 +1,39 @@
 .container.legal {
-    font-family: $main-font;
-    width: 51%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+	font-family: $main-font;
+	width: 51%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	.societe{
+		width: 100%;
+		text-align: center;
+		i{
+			margin-top: 10px;
+			color: $main-color;
+		}
+		&-title{
+			font-family: $display-font;
+			margin-bottom: 0;
+			font-size: 1rem;
+		}
+		&-nom{
+			font-family: $display-font;
+			margin: 40px 0 20px 0;
+			font-size: 1.8rem;
+		}
+		&-address, &-phone, &-cellphone, &-mail{
+			font-size: 1rem;
+			margin: 0;
+		}
+		i.down{
+			margin-top: 30px;
+		}
+		&-infos{
+			display: flex;
+			justify-content: space-around;
+			padding: 10px 120px;
+			// background: #D3D3D3;
+		}
+	}
 }

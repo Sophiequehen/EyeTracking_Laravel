@@ -29,6 +29,9 @@
     @include('auth/login')
     @endauth
 
+    <!-- copyright -->
+    <p class="copyright">©CALYXEN</p>
+
     <script src="/js/app.js"></script>
     @yield('extraJS')
 </body>

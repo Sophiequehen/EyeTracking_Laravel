@@ -47,6 +47,9 @@ Modifier Bande dessinée
         <label for="auteur">Nom de l'auteur :</label>
         <input type="text" id="auteur" name="auteur" value="{{$comic->comic_author}}"/>
 
+        <label for="auteur">Description :</label>
+        <textarea type="text" id="description" name="description">{{$comic->comic_description}}</textarea>
+
         <p class="label-miniature">Miniature :</p>
         <div class="contain-miniature">
             <label class="label-browse" id="label-browse" for="miniature">Parcourir . . .</label>

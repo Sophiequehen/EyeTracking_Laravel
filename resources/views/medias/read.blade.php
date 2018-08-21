@@ -3,8 +3,6 @@
 
 Liste des médias
 
-Medias
-
 @endsection
 @section('content')
 

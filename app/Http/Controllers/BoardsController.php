@@ -11,7 +11,8 @@ use DB;
 use App\Board;
 use App\Comic;
 use App\Area; 
-use App\Media; 
+use App\Media;
+use App\User;
 
 
 /*
@@ -108,12 +109,13 @@ class BoardsController extends Controller
      */
     public function edit($idBD,$idPage)
     {
+        $users = User::all();
         $comic = Comic::all()->where('comic_id', $idBD)->first();  
         $board = Board::all()->where('board_id',$idPage)->first();
         $medias = Media::all();
         $areas = Area::all()->where('fk_board_id', $idPage); 
 
-        return view('boards.edit', ['comic' => $comic, 'medias' => $medias, 'areas' => $areas, 'board' => $board]);
+        return view('boards.edit', ['comic' => $comic, 'medias' => $medias, 'areas' => $areas, 'board' => $board, 'users' => $users]);
     }
 
     /**

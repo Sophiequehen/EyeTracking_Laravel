@@ -16,10 +16,15 @@
 		<div id="imgModif">
 			<!-- <a id="see-areas" class="link-see-areas" href="{{ route('mapping_show',[$board->board_id]) }}"><i class="material-icons">visibility</i><span>Voir toutes les zones</span></a> -->
 
-
+			@if($comic->fk_user_id === Auth::user()->id || Auth::user()->fk_role_id === 3) 
 			<p id="see-areas" class="link-see-areas"><i class="material-icons">visibility</i><span>Voir toutes les zones</span></p>
+			@endif
+
 			<img id="background_map" src="{{ $board->board_image }}" alt="Planets" usemap="#planetmap" class="map">
+
+			@if($comic->fk_user_id === Auth::user()->id || Auth::user()->fk_role_id === 3) 
 			<a id="add-area" class="link-add-area" href="{{ route('mapping_create',[$board->board_id]) }}"><i class="material-icons">add_circle</i><span>Ajouter des zones</span></a>
+			@endif
 
 			<map id="map_object" name="planetmap">
 				<!-- avec/sans media -->

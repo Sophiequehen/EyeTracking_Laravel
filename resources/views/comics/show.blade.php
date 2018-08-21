@@ -27,7 +27,7 @@ BD - {{ $comic->comic_title }}
 
 		@foreach($boards as $board)
 		<div class="small-card">
-			<a href="{{ route('board-show',[$comic->comic_id, $board->board_id]) }}">
+			<a href="{{ route('board-edit',[$comic->comic_id, $board->board_id]) }}">
 				<img src="{{ $board->board_image }}">
 				<p>Planche {{ $board->board_number }}</p>
 			</a>

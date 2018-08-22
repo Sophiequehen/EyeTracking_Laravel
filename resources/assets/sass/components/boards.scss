@@ -8,7 +8,7 @@
 	display:flex;
 	flex-direction:row;
 	flex-wrap:wrap;
-	margin-top:30px;
+	margin-top:0px;
 	max-width:1000px;
 	// justify-content:center;
 
@@ -52,13 +52,30 @@
 
 }
 
+.link-full-screen{
+	cursor: pointer;
+	text-decoration: none;
+	color: $main-color;
+	font-size: 1.2rem;
+	display: flex;
+	justify-content: center;
+	i{
+		margin-right: 10px;
+		font-size: 1.8rem;
+	}
+}
+
+
 .container.modify.board-edit{
 	#imgModif{
 		display: flex;
 		align-items: flex-start;
 		flex-direction: row;
 		justify-content: center;
-		.link-add-area, .link-see-areas{
+		.link-add-area, .link-see-areas, .link-hide-areas{
+			position: fixed;
+			cursor: pointer;
+			width: 300px;
 			text-decoration: none;
 			margin-top: 80px;
 			color: $main-color;
@@ -69,12 +86,62 @@
 				font-size: 1.8rem;
 			}
 		}
+
 		.link-add-area{
+			-webkit-animation: mymoveright 4s; /* Safari 4.0 - 8.0 */
+			animation: mymoveright 4s;
+			margin-left: 700px;
 			transform: rotate(90deg);
 		}
-		.link-see-areas{
-			margin-top: 95px;
+		.link-see-areas, .link-hide-areas{
+			display: flex;
+			align-items: flex-start;
+			margin-right: 700px;
 			transform: rotate(270deg);
+			span{
+				width: 100%;
+				text-align: right;
+			}
+		}
+		.link-hide-areas{
+			i{
+				margin-left: 110px;
+			}
+		}
+		.link-see-areas{
+			-webkit-animation: mymoveleft 4s; /* Safari 4.0 - 8.0 */
+			animation: mymoveleft 4s;
+			i{
+				margin-left: 80px;
+			}
 		}
 	}
 }
+
+/*=============================================
+=            Links areas animation            =
+=============================================*/
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes mymoveleft {
+	from {margin-right: 1350px}
+	to {margin-right: 700px}
+}
+
+/* Standard syntax */
+@keyframes mymoveleft {
+	from {margin-right: 1350px}
+	to {margin-right: 700px}
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes mymoveright {
+	from {margin-left: 1350px}
+	to {margin-left: 700px}
+}
+
+/* Standard syntax */
+@keyframes mymoveright {
+	from {margin-left: 1350px}
+	to {margin-left: 700px}
+}
+/*=====  End of Links areas animation  ======*/

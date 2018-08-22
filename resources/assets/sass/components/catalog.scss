@@ -16,9 +16,10 @@ body{
     h2{
         font-family: $display-font;
     }
-    p{
+    p:not(.link-full-screen){
         font-size: 30px;
         color: $main-color;
+        margin-bottom: 0;
     }
 }
 

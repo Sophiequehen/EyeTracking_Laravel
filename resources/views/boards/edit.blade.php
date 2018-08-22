@@ -9,6 +9,7 @@
 <section class="page-titles">
 	<h2>{{ $comic->comic_title }} - Planches n° {{ $board->board_number }}</h2>
 	<p>/</p>
+	<p id="full-screen" class="link-full-screen"><i class="material-icons">fullscreen</i><span>Lire en plein écran</span></p>
 </section>
 
 <div class="container modify board-edit">
@@ -18,6 +19,7 @@
 
 			@if($comic->fk_user_id === Auth::user()->id || Auth::user()->fk_role_id === 3) 
 			<p id="see-areas" class="link-see-areas"><i class="material-icons">visibility</i><span>Voir toutes les zones</span></p>
+			<p id="hide-areas" class="link-hide-areas" style="display: none"><i class="material-icons">visibility_off</i><span>Cacher les zones</span></p>
 			@endif
 
 			<img id="background_map" src="{{ $board->board_image }}" alt="Planets" usemap="#planetmap" class="map">
@@ -49,12 +51,18 @@
 @section('extraJS')
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script src="http://davidlynch.org/projects/maphilight/jquery.maphilight.js"></script>
+<script src="/js/jquery.maphilight.js"></script>
 <script>
-	// $( document ).ready(function() {
-	// 	$('#see-areas').animate({height: "20px"}, 500);
-	// });
 	$('#see-areas').click(function(){
+		// $('.map').maphilight();
 		$('.map').maphilight();
+		$( "#hide-areas" ).toggle();
+		$( "#see-areas" ).toggle();
+	});
+	$('#hide-areas').click(function(){
+		$( "#hide-areas" ).toggle();
+		$( "#see-areas" ).toggle();
+		location.reload(true);
 	});
 </script>
 
@@ -80,8 +88,8 @@
 	var tabMedias = {!! json_encode($medias->toArray()) !!};
 	var tabAreas = {!! json_encode($areas->toArray()) !!};
 
-	console.log(tabMedias);
-	console.log(tabAreas);
+	// console.log(tabMedias);
+	// console.log(tabAreas);
 
 	tabAreas.forEach(function(area){
 		tabMedias.forEach(function(media){
@@ -91,8 +99,8 @@
 
 			if(mediaId === zoneId){
 
-				console.log(mediaId);
-				console.log(zoneId);
+				// console.log(mediaId);
+				// console.log(zoneId);
 
 				var test = "test_" + mediaId;
 				$( "#map" + zoneId ).hover(function() {

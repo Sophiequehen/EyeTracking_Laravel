@@ -10,8 +10,16 @@ $main-font: 'Hind', sans-serif;
 $main-color: #ff9315;
 $danger-color:#e44949;
 
+* {-moz-box-sizing: border-box; box-sizing: border-box;}
+
+html {
+	height: 100%;
+}
+
 body{
-	height: 100vh;
+	position: relative;
+	min-height: 100%;
+	padding-bottom: 40px;
 }
 
 .display-none{
@@ -25,6 +33,7 @@ body{
 
 .copyright{
 	width: 100vw;
+	bottom: 0;
 	position: absolute;
 	text-align: center;
 	font-size: 0.65rem;

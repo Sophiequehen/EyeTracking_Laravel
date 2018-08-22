@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Media;
-
+use App\User;
 /*
 |--------------------------------------------------------------------------
 | Controller pour les MÉDIAS des BD
@@ -21,9 +21,10 @@ class MediasController extends Controller
 	// private $video_ext = ['mp4', 'mpeg'];
 
 	public function index(){
-
+		
+		$users = User::all();
 		$medias = Media::all();
-		return view('medias.read', ['medias' => $medias]);
+		return view('medias.read', ['medias' => $medias, 'users' => $users]);
 	}
 
 

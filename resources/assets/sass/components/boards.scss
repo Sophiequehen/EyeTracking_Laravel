@@ -72,6 +72,9 @@
 		align-items: flex-start;
 		flex-direction: row;
 		justify-content: center;
+		img, area{
+			cursor: url(/img/cursor.png), pointer;
+		}
 		.link-add-area, .link-see-areas, .link-hide-areas{
 			position: fixed;
 			cursor: pointer;

@@ -10,6 +10,10 @@ $main-font: 'Hind', sans-serif;
 $main-color: #ff9315;
 $danger-color:#e44949;
 
+body{
+	height: 100vh;
+}
+
 .display-none{
 	display: none!important;
 }
@@ -20,6 +24,8 @@ $danger-color:#e44949;
 }
 
 .copyright{
+	width: 100vw;
+	position: absolute;
 	text-align: center;
 	font-size: 0.65rem;
 	margin: 40px 0 0 0;

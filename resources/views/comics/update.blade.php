@@ -57,6 +57,7 @@ Modifier Bande dessinée
             <span id="fileuploadurl">{{$comic->comic_miniature_url}}</span>
         </div>
 
+        @if(Auth::user()->fk_role_id === 3) 
         <div class="material-toggle">
             @if($comic->comic_publication === 1)
             <input id="publication" name="publication" type="checkbox" checked="checked" />
@@ -66,6 +67,7 @@ Modifier Bande dessinée
             <label for="publication" class="label-main-color"></label>
             <p class="label-publication">Publication On/Off</p>
         </div>
+        @endif
 
         <input class="btn-outline" type="submit" value="MODIFIER"/>
         <a href="{{route('comic_delete',[$comic->comic_id])}}"><button class="btn-outline">SUPPRIMER LA BANDE DESSINÉE</button></a>

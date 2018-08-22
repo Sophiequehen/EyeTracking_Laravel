@@ -12,6 +12,7 @@
  require('./createMedia');
  require('./legal');
  require('./imageMapResizer.min');
+ require('./jquery.maphilight');
 
  // console.log('ok');
 

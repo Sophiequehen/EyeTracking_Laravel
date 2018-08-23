@@ -56,6 +56,7 @@ Accueil
           @endforeach
       </section>  
       <!-- TO SEE BD CREATED BY THE CONNECTED ADMIN -->
+      @if(Auth::check() && Auth::user()->fk_role_id === 3 || Auth::check() && Auth::user()->fk_role_id === 1) 
       <section class="page-titles">
         <h2>Vos bandes dessinées</h2>
         <p>/</p>
@@ -65,7 +66,12 @@ Accueil
         @if(Auth::check() && $comic->fk_user_id === Auth::user()->id) 
         <article class="comics_catalog">
             <a href="{{ route('comics_show', $comic->comic_id) }}">
-                <img class="img_catalog" src="{{ $comic->comic_miniature_url }}" alt="cover">
+                @if($comic->comic_publication === 1)
+                <img class="img_catalog" src="{{$comic->comic_miniature_url}}" alt="cover">
+                @else
+                <p class="message-card">Non publiée</p>
+                <img class="img_catalog unpublished" src="{{$comic->comic_miniature_url}}" alt="cover">
+                @endif
             </a>
             <div class="infos_catalog">
                 <ul>
@@ -83,4 +89,5 @@ Accueil
       @endif
       @endforeach
   </section>
+  @endif
   @endsection

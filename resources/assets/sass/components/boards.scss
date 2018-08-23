@@ -93,13 +93,13 @@
 		.link-add-area{
 			-webkit-animation: mymoveright 4s; /* Safari 4.0 - 8.0 */
 			animation: mymoveright 4s;
-			margin-left: 700px;
+			margin-left: 735px;
 			transform: rotate(90deg);
 		}
 		.link-see-areas, .link-hide-areas{
 			display: flex;
 			align-items: flex-start;
-			margin-right: 700px;
+			margin-right: 735px;
 			transform: rotate(270deg);
 			span{
 				width: 100%;
@@ -127,24 +127,24 @@
 /* Safari 4.0 - 8.0 */
 @-webkit-keyframes mymoveleft {
 	from {margin-right: 1350px}
-	to {margin-right: 700px}
+	to {margin-right: 735px}
 }
 
 /* Standard syntax */
 @keyframes mymoveleft {
 	from {margin-right: 1350px}
-	to {margin-right: 700px}
+	to {margin-right: 735px}
 }
 
 /* Safari 4.0 - 8.0 */
 @-webkit-keyframes mymoveright {
 	from {margin-left: 1350px}
-	to {margin-left: 700px}
+	to {margin-left: 735px}
 }
 
 /* Standard syntax */
 @keyframes mymoveright {
 	from {margin-left: 1350px}
-	to {margin-left: 700px}
+	to {margin-left: 735px}
 }
 /*=====  End of Links areas animation  ======*/

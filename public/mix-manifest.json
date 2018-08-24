@@ -1,6 +1,8 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
+    "/js/jquery.maphilight.js": "/js/jquery.maphilight.js",
     "/js/mappingRead.js": "/js/mappingRead.js",
-    "/js/canvasAreaDraw.js": "/js/canvasAreaDraw.js"
+    "/js/canvasAreaDraw.js": "/js/canvasAreaDraw.js",
+    "/js/imageMapResizer.min.js": "/js/imageMapResizer.min.js"
 }

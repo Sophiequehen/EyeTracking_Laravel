@@ -50,11 +50,12 @@
 
 @section('extraJS')
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script src="http://davidlynch.org/projects/maphilight/jquery.maphilight.js"></script>
+<!-- <script src="http://davidlynch.org/projects/maphilight/jquery.maphilight.js"></script> -->
 <script src="/js/jquery.maphilight.js"></script>
 <script>
 	$('#see-areas').click(function(){
 		$('.map').maphilight();
+		$('area').css("cursor", "pointer" );
 		$( "#hide-areas" ).toggle();
 		$( "#see-areas" ).toggle();
 	});
@@ -83,20 +84,17 @@
 
 </script>
 <script type="text/javascript">
+// FOR SOUNDS
+var tabMedias = {!! json_encode($medias->toArray()) !!};
+var tabAreas = {!! json_encode($areas->toArray()) !!};
 
-	var tabMedias = {!! json_encode($medias->toArray()) !!};
-	var tabAreas = {!! json_encode($areas->toArray()) !!};
+tabAreas.forEach(function(area){
+	tabMedias.forEach(function(media){
 
-	// console.log(tabMedias);
-	// console.log(tabAreas);
+		var mediaId = media.media_id;
+		var zoneId = area.fk_media_id;
 
-	tabAreas.forEach(function(area){
-		tabMedias.forEach(function(media){
-
-			var mediaId = media.media_id;
-			var zoneId = area.fk_media_id;
-
-			if(mediaId === zoneId){
+		if(mediaId === zoneId){
 
 				// console.log(mediaId);
 				// console.log(zoneId);
@@ -112,7 +110,7 @@
 				});
 			};
 		});
-	});
+});
 
 
 </script>

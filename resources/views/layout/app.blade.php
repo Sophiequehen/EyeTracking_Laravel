@@ -7,7 +7,11 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/png" href="/img/favicon.png"/>
+    <!-- <link rel="shortcut icon" type="image/png" href="/img/favicon.png"/> -->
+    
+    <link rel="shortcut icon" href="/img/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
+    <link rel="icon" type="image/png" href="/img/favicon.png" />
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
     

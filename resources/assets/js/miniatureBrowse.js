@@ -1,4 +1,4 @@
-if(document.URL.includes('comics/update/')){
+if(document.URL.includes('comics/update/') || document.URL.includes('comics/create')){
 //miniature pour la couverture
 var input = document.getElementById('miniature');
 var path = document.getElementById('fileuploadurl');

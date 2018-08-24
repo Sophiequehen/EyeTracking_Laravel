@@ -17,11 +17,16 @@
 				input{
 					width: 70px;
 					margin: 0;
+					text-align: center;
 				}
 				label{
 					margin: 0 10px 5px 0;
 				}
 			}
+			select{
+				background: white;
+			}
+
 			select, input{
 				margin-left: 50px;
 				height: 47px;

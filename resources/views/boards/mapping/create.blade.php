@@ -10,7 +10,7 @@ Créer une zone
     @php if(isset($result)) echo $result; @endphp
 
     <div class="card-body area">
-        <form class="area-form" method="post" action=" {{action('AreaController@store', [$board->board_id])}}" enctype="multipart/form-data">
+        <form class="area-form" method="post" action=" {{action('AreaController@store', [$comic->comic_id, $board->board_id])}}" enctype="multipart/form-data">
             @csrf
 
             <div class="area-form-manage">
@@ -46,25 +46,20 @@ Créer une zone
             </div>
 
             <div id="imgModif">
+                <!-- TO SEE ALL AREAS
                 <div class="see-all">
                     <a class="" href="{{ route('mapping_show',[$board->board_id]) }}"><i class="material-icons">visibility</i><span>Voir toutes les zones</span></a>
-                </div>
+                </div> -->
                 <div class="page">
+                    <a id="go-board" class="link-go-board" href="{{ route('board-edit',[$comic->comic_id, $board->board_id]) }}"><i class="material-icons">arrow_back</i><span>Retourner à la planche</span></a>
+
                     <textarea name="coords1" class="canvas-area input-xxlarge" placeholder="Shape Coordinates" data-image-url="{{ $board->board_image }}" style="display: none;">
                     </textarea>
                 </div>
+            </div>
+        </form>
 
-                <!-- To see all areas on another board but scaling doesn't work -->
-                <!-- <img id="background_map" src="{{ $board->board_image }}" alt="Planets" usemap="#planetmap" class="map">
-                <map id="map_object"name="planetmap">
-                  @foreach ($areas as $zone) 
-                  <area id="{{ $zone->area_id }}" shape="poly" coords="{{ $zone->area_coord }}" data-maphilight='{"alwaysOn": true,"strokeColor":"0000ff","strokeWidth":2,"fillColor":"0000ff","fillOpacity":0.6}' data-style= "without-media" href="">
-                  @endforeach
-              </map>  -->
-          </div>
-      </form>
-
-  </div>
+    </div>
 </div>
 @endsection
 

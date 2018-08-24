@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Storage;
 use DB;
-
+use App\Comic;
 use App\Board;
 use App\Area; 
 use App\Media; 
@@ -28,6 +28,7 @@ class AreaController extends Controller
       // }
 
         return view('boards.mapping.show',['pages' => $pageQuery[0], 'areas' => $areasQuery]);
+
     }
 
 
@@ -48,15 +49,15 @@ class AreaController extends Controller
      */
 
     
-    public function create($id, Request $request)
+    public function create($idBD, $idPage, Request $request)
     {
-        $board = Board::all()->where('board_id',$id)->first();
+        $comic = Comic::all()->where('comic_id', $idBD)->first();  
+        $board = Board::all()->where('board_id',$idPage)->first();
         $medias = Media::all();
+        $areas = Area::all()->where('fk_board_id', $idPage);   
 
-        $areas = Area::all()->where('fk_board_id', $id);   
 
-
-        return view('boards.mapping.create', ['medias' => $medias, 'board' => $board, 'areas' => $areas]);
+        return view('boards.mapping.create', ['comic' => $comic, 'medias' => $medias, 'board' => $board, 'areas' => $areas]);
     }
 
     /**
@@ -82,7 +83,7 @@ class AreaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $id)
+    public function store($idBD, $idPage, Request $request)
     {
             // var_dump( request('dataType'));
         // var_dump($request->all());
@@ -90,11 +91,11 @@ class AreaController extends Controller
         $area = new Area;
         $area-> area_coord = request('coords1');
         $area-> area_trigger = request('trigger');
-        $area-> fk_board_id = $id;
+        $area-> fk_board_id = $idPage;
         $area-> fk_media_id = request('dataType');
         $area->save();
 
-        return redirect()->route('mapping_create',  ['id' => $id]);
+        return redirect()->route('board-edit',  ['idBD' => $idBD, 'idPage' => $idPage]);
 
     }
 

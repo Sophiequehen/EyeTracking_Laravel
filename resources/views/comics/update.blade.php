@@ -57,7 +57,7 @@ Modifier Bande dessinée
             <span id="fileuploadurl">{{$comic->comic_miniature_url}}</span>
         </div>
 
-        @if(Auth::user()->fk_role_id === 3) 
+        @if(Auth::check() && Auth::user()->fk_role_id === 3) 
         <div class="material-toggle">
             @if($comic->comic_publication === 1)
             <input id="publication" name="publication" type="checkbox" checked="checked" />

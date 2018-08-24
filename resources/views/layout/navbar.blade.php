@@ -15,7 +15,7 @@
 		<div id="navbar">
 			<a href="{{ url('/') }}">Accueil</a>
 			<a href="{{ route('comics_index') }}">Catalogue</a>
-			@if(Auth::user()->fk_role_id === 1 || Auth::user()->fk_role_id === 3) 
+			@if(Auth::check() && Auth::user()->fk_role_id === 1 || Auth::check() && Auth::user()->fk_role_id === 3) 
 			<a href="{{ route('medias') }}">Médias</a>
 			@endif
 			<a href="{{ url('/legalmentions') }}">À propos</a>

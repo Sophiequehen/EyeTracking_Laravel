@@ -80,7 +80,7 @@ Liste des médias
 					<!-- <p class="card-filename">Nom du fichier :</p> -->
 					<h5 class="card-title">{{ $media->media_filename }}</h5>
 					<p class="card-text">Type de fichier : {{ $media->media_type }}</p>
-					@if(Auth::user()->fk_role_id === 3)
+					@if(Auth::check() && Auth::user()->fk_role_id === 3)
 					<a href="{{ route('medias_delete', ['id' => $media->media_id]) }}" class="btn-catalogue">Supprimer</a>
 					@endif
 				</div>

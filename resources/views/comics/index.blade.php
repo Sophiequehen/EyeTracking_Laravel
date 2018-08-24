@@ -51,7 +51,7 @@ Catalogue
 <section class="containers_catalog">
 
   <!-- HERE THE IF FOR ADMIN + ADD BUTTON -->
-  @if(Auth::user()->fk_role_id === 1 || Auth::user()->fk_role_id === 3) 
+  @if(Auth::check() && Auth::user()->fk_role_id === 1 || Auth::check() && Auth::user()->fk_role_id === 3) 
   <a class="btn-add-bd" href="{{route('comics_create')}}"><i class="material-icons">add</i><span>Ajouter une bande dessinée</span></a>
   @endif
 
@@ -59,7 +59,7 @@ Catalogue
 
   @foreach ($comics as $comic)
   <!-- IF USER IS SUPERADMIN, CAN SEE ALL BD, PUBLISHED OR NOT-->
-  @if(Auth::user()->fk_role_id === 3)
+  @if(Auth::check() && Auth::user()->fk_role_id === 3)
   <article class="comics_catalog">
     <a href="{{ route('comics_show', $comic->comic_id) }}">
       @if($comic->comic_publication === 1)
@@ -88,7 +88,7 @@ Catalogue
 
 
   <!-- IF USER IS ADMIN, CAN SEE ALL PUBLISHED BD, AND ONLY HIS UNPUBLISHED BD-->
-  @elseif(Auth::user()->fk_role_id === 1 && $comic->comic_publication === 1 || Auth::user()->fk_role_id === 1 && $comic->fk_user_id === Auth::user()->id)
+  @elseif(Auth::check() && Auth::user()->fk_role_id === 1 && $comic->comic_publication === 1 || Auth::check() && Auth::user()->fk_role_id === 1 && $comic->fk_user_id === Auth::user()->id)
   <article class="comics_catalog">
     <a href="{{ route('comics_show', $comic->comic_id) }}">
       @if($comic->comic_publication === 1)
@@ -111,14 +111,14 @@ Catalogue
       </ul>
     </div>
     <div class="read_edit_catalog">
-      @if($comic->fk_user_id === Auth::user()->id) 
+      @if(Auth::check() && $comic->fk_user_id === Auth::user()->id) 
       <a  href="{{ route ('comics_update', $comic->comic_id ) }}" id="button_edit_catalog"><button class="btn-catalogue">Modifier</button></a>
       @endif 
     </div>
   </article>
 
   <!-- IF USER IS READER, CAN ONLY SEE PUBLISHED BD-->
-  @elseif(Auth::user()->fk_role_id === 2 && $comic->comic_publication === 1)
+  @elseif(Auth::check() && Auth::user()->fk_role_id === 2 && $comic->comic_publication === 1)
   <article class="comics_catalog">
     <a href="{{ route('comics_show', $comic->comic_id) }}">
       <img class="img_catalog" src="{{$comic->comic_miniature_url}}" alt="cover">

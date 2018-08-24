@@ -97,8 +97,9 @@
 		}
 
 		button.btn-outline{
-			margin: 20px 0px 0px 0px;
+			// margin: 20px 0px 0px 0px;
 			width: 100%;
+			margin: 0;
 			border: 1px solid $danger-color !important;
 			background: $danger-color;
 			color: white;
@@ -120,6 +121,16 @@
 
 		#label-board-image{
 			margin-bottom: 30px;
+		}
+
+		.update-buttons{
+			width: 100%;
+			height: 45px;
+			display: flex;
+			justify-content: space-between;
+			input, a{
+				width: 250px;
+			}
 		}
 	}
 }

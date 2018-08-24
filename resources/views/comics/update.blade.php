@@ -68,9 +68,10 @@ Modifier Bande dessinée
             <p class="label-publication">Publication On/Off</p>
         </div>
         @endif
-
-        <input class="btn-outline" type="submit" value="MODIFIER"/>
-        <a href="{{route('comic_delete',[$comic->comic_id])}}"><button class="btn-outline">SUPPRIMER LA BANDE DESSINÉE</button></a>
+        <div class="update-buttons">
+            <input class="btn-outline" type="submit" value="MODIFIER"/>
+            <a href="{{route('comic_delete',[$comic->comic_id])}}"><button class="btn-outline">SUPPRIMER LA BANDE DESSINÉE</button></a>
+        </div>
     </form>
 
 

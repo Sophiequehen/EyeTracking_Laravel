@@ -78,6 +78,7 @@ class ComicsController extends Controller
         $comics-> comic_title = request('titre');
         $comics-> comic_author = request('auteur');
         $comics-> comic_publisher = request('editeur');
+        $comics-> comic_member = request('membre');
         $comics-> comic_description = request('description');
         $comics-> comic_miniature_url = '/storage/miniatures/'.$originalName;
 
@@ -125,6 +126,7 @@ class ComicsController extends Controller
         $comic-> comic_title = request('titre');
         $comic-> comic_author = request('auteur');
         $comic-> comic_publisher = request('editeur');
+        $comics-> comic_member = request('membre');
         $comic-> comic_description = request('description');
 
 

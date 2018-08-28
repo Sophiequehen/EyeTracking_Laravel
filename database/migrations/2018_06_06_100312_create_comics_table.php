@@ -16,10 +16,11 @@ class CreateComicsTable extends Migration
         Schema::create('comics', function (Blueprint $table) {
             $table->increments('comic_id');
             $table->string('comic_title', 100);
-            $table->string('comic_author', 100);
-            $table->string('comic_publisher', 100);
+            $table->string('comic_author', 100)->nullable();;
+            $table->string('comic_publisher', 100)->nullable();;
+            $table->string('comic_member', 300);
             $table->string('comic_miniature_url', 100);
-            $table->string('comic_description', 1500);
+            $table->string('comic_description', 3500);
             $table->boolean('comic_publication')->default(0);
             $table->unsignedInteger('fk_user_id');
             $table->timestamps();

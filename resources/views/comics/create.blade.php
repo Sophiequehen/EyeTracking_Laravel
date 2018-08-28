@@ -18,13 +18,16 @@ Ajouter Bande dessinée
         <input type="text" id="titre" name="titre"  required/>
 
         <label for="editeur"> Nom de l'éditeur :</label>
-        <input type="text" id="editeur" name="editeur" required />
+        <input type="text" id="editeur" name="editeur" placeholder="Si la BD existe déjà"/>
 
         <label for="auteur">Nom de l'auteur :</label>
-        <input type="text" id="auteur" name="auteur" required />
+        <input type="text" id="auteur" name="auteur" placeholder="Si la BD existe déjà"/>
 
         <label for="auteur">Description :</label>
-        <textarea type="text" id="description" name="description" placeholder="N'oubliez pas de préciser vos noms à la fin de la description ;)" required></textarea>
+        <textarea type="text" id="description" name="description" required></textarea>
+
+        <label for="auteur">Membres du groupes :</label>
+        <input type="text" id="membre" name="membre" placeholder="ex : Paul Auchon, Fred Riksen, . . ." required />
 
         <p class="label-miniature">Miniature :</p>
         <div class="contain-miniature">

@@ -33,5 +33,8 @@ class CreateForeignKeysTable extends Migration
             $table->foreign('fk_comic_id')->references('comic_id')->on('comics');
         });
 
+        Schema::table('medias', function (Blueprint $table) {
+            $table->foreign('fk_user_id')->references('id')->on('users');
+        });
     }
 }

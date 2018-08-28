@@ -18,6 +18,8 @@ class CreateMediasTable extends Migration
             $table->string('media_type');
             $table->string('media_filename');
             $table->string('media_path');
+            $table->unsignedInteger('fk_user_id');
+            $table->boolean('media_use')->default(0);
             $table->timestamps();
         });
     }

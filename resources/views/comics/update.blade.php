@@ -50,6 +50,9 @@ Modifier Bande dessinée
         <label for="auteur">Description :</label>
         <textarea type="text" id="description" name="description">{{$comic->comic_description}}</textarea>
 
+        <label for="auteur">Membres du groupes :</label>
+        <input type="text" id="membre" name="membre" value="{{$comic->comic_member}}"/>
+
         <p class="label-miniature">Miniature :</p>
         <div class="contain-miniature">
             <label class="label-browse" id="label-browse" for="miniature">Parcourir . . .</label>

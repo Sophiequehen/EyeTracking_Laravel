@@ -79,9 +79,14 @@ Liste des médias
 				<div class="card-body">
 					<!-- <p class="card-filename">Nom du fichier :</p> -->
 					<h5 class="card-title">{{ $media->media_filename }}</h5>
-					<p class="card-text">Type de fichier : {{ $media->media_type }}</p>
+					@foreach ($users as $user)
+					@if($media->fk_user_id === $user->id)
+					<p class="card-text medias">Ajouté par</p>
+					<p class="card-text medias">{{ $user->name }}</p>
+					@endif
+					@endforeach
 					@if(Auth::check() && Auth::user()->fk_role_id === 3)
-					<a href="{{ route('medias_delete', ['id' => $media->media_id]) }}" class="btn-catalogue">Supprimer</a>
+					<a href="{{ route('medias_delete', ['id' => $media->media_id]) }}" class="btn-catalogue medias">Supprimer</a>
 					@endif
 				</div>
 			</article>

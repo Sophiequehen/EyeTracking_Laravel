@@ -28,6 +28,15 @@
 			.card-text{
 				margin-bottom: 10px;
 			}
+
+			.card-text.medias{
+				margin-bottom: -4px;;
+			}
+
+			p.card-text.medias:last-of-type{
+				margin-bottom: 10px;
+			}
+
 			.card-text, .card-filename{
 				font-size: 0.9em;
 			}
@@ -41,8 +50,9 @@
 			}
 		}
 
-		a.btn-catalogue{
+		a.btn-catalogue.medias{
 			width: 150px;
+			margin-top: 10px;
 		}
 
 		img.card-img-top{

@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Comic;
 use App\Media;
 use App\User;
+use Auth;
 /*
 |--------------------------------------------------------------------------
 | Controller pour les MÉDIAS des BD
@@ -22,6 +24,7 @@ class MediasController extends Controller
 
 	public function index(){
 		
+		// $comics = Comic::all();
 		$users = User::all();
 		$medias = Media::all();
 		return view('medias.read', ['medias' => $medias, 'users' => $users]);
@@ -70,9 +73,11 @@ class MediasController extends Controller
 		// }
 
 		$medias = new Media;
+		$medias-> fk_user_id = Auth::user()->id;
 		$medias-> media_type = $dataType;
 		$medias-> media_filename = $originalName;
 		$medias-> media_path = '/storage/medias/'.$originalName;
+
 
 
 		//verifies if the media is already present

@@ -35,7 +35,7 @@
     @endauth
 
     <!-- copyright -->
-    <p class="copyright">©CALYXEN</p>
+    <p id="copyright" class="copyright">©CALYXEN</p>
 
     <script src="/js/app.js"></script>
     @yield('extraJS')

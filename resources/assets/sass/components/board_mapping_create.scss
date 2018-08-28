@@ -22,6 +22,10 @@
 			flex-direction: column;
 			align-items: center;
 			width: 700px;
+			a:hover{
+				text-decoration: none;
+				color: $main-color;
+			}
 
 			button#clearButton{
 				border: 1px solid #dc3545;

@@ -11,8 +11,9 @@
  require('./updateComic');
  require('./createMedia');
  require('./legal');
- require('./imageMapResizer.min');
  require('./jquery.maphilight');
+ require('./fullscreen');
+ // require('./imageMapResizer.min');
 
  // console.log('ok');
 

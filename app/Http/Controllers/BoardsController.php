@@ -39,11 +39,28 @@ class BoardsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    public function read($idBD, $idPage)
+    {
+        $users = User::all();
+        $comic = Comic::all()->where('comic_id', $idBD)->first();  
+        $board = Board::all()->where('board_id',$idPage)->first();
+        $medias = Media::all();
+        $areas = Area::all()->where('fk_board_id', $idPage); 
+
+        return view('boards.fullscreen', ['comic' => $comic, 'medias' => $medias, 'areas' => $areas, 'board' => $board, 'users' => $users]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+
     public function show($idBD,$idPage)
     {
         $comic = Comic::all()->where('comic_id', $idBD)->first();  
         $board = Board::all()->where('board_id',$idPage)->first();
-
         return view('boards.show', ['comic' => $comic,'board' => $board]);
     }
 

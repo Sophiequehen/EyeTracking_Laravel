@@ -65,6 +65,12 @@
 	}
 }
 
+a#full-screen{
+	color: $main-color;
+}
+a#full-screen:hover{
+	text-decoration: none;
+}
 
 .container.modify.board-edit{
 	#imgModif{

@@ -165,17 +165,10 @@ class ComicsController extends Controller
     // Supprime les miniatures de la DB et du Storage
     public function destroy(Request $request, $id)
     {
-        //DB::table('pages')->where('fk_comic_oid','=',$id)->delete();
-        //DB::table('comics')->where('comic_id', '=', $id)->delete();
-
         $comic = Comic::where('comic_id', $id)->first();
         $path_delete = substr($comic->comic_miniature_url, 9);
 
         Storage::delete('public/'.$path_delete);
-
-
-        // Storage::delete('public/ storage/images/pages');
-
         Comic::where('comic_id', $id)->delete();
 
         return redirect()->route('comics_index')->with('delete','BD supprimée');

@@ -127,10 +127,11 @@ class AreaController extends Controller
      * @return \Illuminate\Http\Response
      */
     
-    // Supprime les miniatures de la DB et du Storage
-    public function destroy(Request $request, $id)
+    public function destroy($idBD, $idPage, $idArea)
     {
 
+        Area::where('area_id', $idArea)->delete();
+        return redirect()->route('board-edit', ['idBD' => $idBD, 'idPage' => $idPage])->with('delete','Zone supprimée');
 
 
     }

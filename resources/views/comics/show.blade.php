@@ -15,6 +15,7 @@ BD - {{ $comic->comic_title }}
 		<div class="descriptif">
 			<p class="title">Description</p>
 			<p class="paragraph">{{ $comic->comic_description }}</p>
+			<p class="members">{{ $comic->comic_member }}</p>
 		</div>
 	</div>
 

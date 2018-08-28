@@ -29,7 +29,7 @@ Ajouter Bande dessinée
         <label for="auteur">Membres du groupes :</label>
         <input type="text" id="membre" name="membre" placeholder="ex : Paul Auchon, Fred Riksen, . . ." required />
 
-        <p class="label-miniature">Miniature :</p>
+        <p class="label-miniature">Miniature (600px/850px) :</p>
         <div class="contain-miniature">
             <label class="label-browse" id="label-browse" for="miniature">Parcourir . . .</label>
             <input class="inputfile" type="file" id="miniature" name="miniature" />

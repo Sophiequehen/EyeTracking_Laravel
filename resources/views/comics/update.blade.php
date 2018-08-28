@@ -47,13 +47,13 @@ Modifier Bande dessinée
         <label for="auteur">Nom de l'auteur :</label>
         <input type="text" id="auteur" name="auteur" value="{{$comic->comic_author}}"/>
 
-        <label for="auteur">Description :</label>
+        <label for="description">Description :</label>
         <textarea type="text" id="description" name="description">{{$comic->comic_description}}</textarea>
 
-        <label for="auteur">Membres du groupes :</label>
+        <label for="membre">Membres du groupes :</label>
         <input type="text" id="membre" name="membre" value="{{$comic->comic_member}}"/>
 
-        <p class="label-miniature">Miniature :</p>
+        <p class="label-miniature">Miniature (600px/850px) :</p>
         <div class="contain-miniature">
             <label class="label-browse" id="label-browse" for="miniature">Parcourir . . .</label>
             <input class="inputfile" type="file" id="miniature" name="miniature" />
@@ -89,7 +89,7 @@ Modifier Bande dessinée
             <input type="number" id="numero-board" name="numero-board" value="1"/>
             @endif
 
-            <p class="label-miniature">Image de la planche :</p>
+            <p class="label-miniature">Image de la planche (600px/850px) :</p>
             <div class="contain-miniature">
                 <label class="label-browse" id="label-board-image" for="board-image">Parcourir . . .</label>
                 <input class="inputfile" type="file" id="board-image" name="board-image" />

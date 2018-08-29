@@ -97,8 +97,8 @@ a#full-screen:hover{
 		}
 
 		.link-add-area{
-			-webkit-animation: mymoveright 4s; /* Safari 4.0 - 8.0 */
-			animation: mymoveright 4s;
+			-webkit-animation: mymoveright 2s; /* Safari 4.0 - 8.0 */
+			animation: mymoveright 2s;
 			margin-left: 735px;
 			transform: rotate(90deg);
 		}
@@ -118,11 +118,28 @@ a#full-screen:hover{
 			}
 		}
 		.link-see-areas{
-			-webkit-animation: mymoveleft 4s; /* Safari 4.0 - 8.0 */
-			animation: mymoveleft 4s;
+			-webkit-animation: mymoveleft 2s; /* Safari 4.0 - 8.0 */
+			animation: mymoveleft 2s;
 			i{
 				margin-left: 80px;
 			}
+		}
+
+		.board-pagination{
+			margin-top: 30px;
+			position: fixed;
+		}
+
+		.board-pagination.next{
+			right: 200px;
+			-webkit-animation: paginationmoveleft 2s; /* Safari 4.0 - 8.0 */
+			animation: paginationmoveleft 2s;
+		}
+
+		.board-pagination.before{
+			left: 200px;
+			-webkit-animation: paginationmoveright 2s; /* Safari 4.0 - 8.0 */
+			animation: paginationmoveright 2s;
 		}
 	}
 }
@@ -154,3 +171,31 @@ a#full-screen:hover{
 	to {margin-left: 735px}
 }
 /*=====  End of Links areas animation  ======*/
+
+/*=============================================
+=       board-pagination animation       =
+=============================================*/
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes paginationmoveleft {
+	from {right: 0px}
+	to {right: 200px}
+}
+
+/* Standard syntax */
+@keyframes paginationmoveleft {
+	from {right: 0px}
+	to {right: 200px}
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes paginationmoveright {
+	from {left: 0px}
+	to {left: 200px}
+}
+
+/* Standard syntax */
+@keyframes paginationmoveright {
+	from {left: 0px}
+	to {left: 200px}
+}
+/*=====  Enboard-pagination animation  ===*/

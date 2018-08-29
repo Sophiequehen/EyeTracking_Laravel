@@ -15,6 +15,8 @@
 <div class="container modify board-edit">
 	<div class="card-body area">
 		<div id="imgModif">
+			<div class="board-pagination before"><a><img src="/img/previous.png"></a></div>
+			<div class="board-pagination next"><a><img src="/img/next.png"></a></div>
 
 			@if(Auth::check() && $comic->fk_user_id === Auth::user()->id || Auth::check() && Auth::user()->fk_role_id === 3) 
 			<p id="see-areas" class="link-see-areas"><i class="material-icons">visibility</i><span>Voir toutes les zones</span></p>
@@ -424,8 +426,8 @@ $.fn.maphilight.defaults = {
 
 </script>
 <script>
-	$('.map').maphilight();
 	$('#see-areas').click(function(){
+		$('.map').maphilight();
 		// $('area').css("cursor", "url(/img/delete.svg), pointer" );
 		$('area').css("cursor", "pointer" );
 		$( "#hide-areas" ).toggle();

@@ -37,6 +37,19 @@
 				margin-bottom: 10px;
 			}
 
+			p.card-text.medias.notuse, p.card-text.medias.use{
+				padding: 2px;
+				margin-top: 5px;
+			}
+
+			p.card-text.medias.notuse{
+				color: $danger;
+			}
+
+			p.card-text.medias.use{
+				color: $main-color;
+			}
+
 			.card-text, .card-filename{
 				font-size: 0.9em;
 			}
@@ -52,7 +65,6 @@
 
 		a.btn-catalogue.medias{
 			width: 150px;
-			margin-top: 10px;
 		}
 
 		img.card-img-top{

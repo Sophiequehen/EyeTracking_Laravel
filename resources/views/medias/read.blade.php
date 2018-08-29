@@ -85,6 +85,13 @@ Liste des médias
 					<p class="card-text medias">{{ $user->name }}</p>
 					@endif
 					@endforeach
+
+					@if($media->media_use === 1)
+					<p class="card-text medias use">Utilisé</p>
+					@else
+					<p class="card-text medias notuse">Non utilisé</p>
+					@endif
+
 					@if(Auth::check() && Auth::user()->fk_role_id === 3)
 					<a href="{{ route('medias_delete', ['id' => $media->media_id]) }}" class="btn-catalogue medias">Supprimer</a>
 					@endif

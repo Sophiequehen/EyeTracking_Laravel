@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Comic;
 use App\Media;
 use App\User;
+use App\Area; 
 use Auth;
 /*
 |--------------------------------------------------------------------------
@@ -24,10 +25,10 @@ class MediasController extends Controller
 
 	public function index(){
 		
-		// $comics = Comic::all();
+		$areas = Area::all();
 		$users = User::all();
 		$medias = Media::all();
-		return view('medias.read', ['medias' => $medias, 'users' => $users]);
+		return view('medias.read', ['areas' => $areas, 'medias' => $medias, 'users' => $users]);
 	}
 
 
@@ -100,8 +101,6 @@ class MediasController extends Controller
 	{
 
 		$media = Media::where('media_id', $id)->first();
-
-
 		$media_name = $media-> media_filename;
 
 		return redirect()->route('medias')->with('alert_delete',$media_name);
@@ -110,13 +109,10 @@ class MediasController extends Controller
 	public function destroy($name, Request $request)
 	{		
 		$media = Media::where('media_filename', $name)->first();
-
 		$path_delete = substr($media->media_path, 9);
-
 		Storage::delete('public/'.$path_delete);
-
 		Media::where('media_filename', $name)->delete();
 
-		return redirect()->route('medias')->with('add','Media correctement supprimé :'.$name);
+		return redirect()->route('medias')->with('add','Media correctement supprimé : '.$name);
 	}
 }

@@ -55,8 +55,7 @@ class AreaController extends Controller
         $board = Board::all()->where('board_id',$idPage)->first();
         $medias = Media::all();
         $areas = Area::all()->where('fk_board_id', $idPage);   
-
-
+        
         return view('boards.mapping.create', ['comic' => $comic, 'medias' => $medias, 'board' => $board, 'areas' => $areas]);
     }
 
@@ -94,6 +93,9 @@ class AreaController extends Controller
         $area-> fk_board_id = $idPage;
         $area-> fk_media_id = request('dataType');
         $area->save();
+        $media = Media::where('media_id', request('dataType'))->first();
+        $media-> media_use = true;
+        $media->save();
 
         return redirect()->route('board-edit',  ['idBD' => $idBD, 'idPage' => $idPage]);
 

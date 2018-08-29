@@ -75,9 +75,6 @@ Route::get('/medias/delete/{id}', 'MediasController@delete')->name('medias_delet
 Route::get('/medias/destroy/{name}', 'MediasController@destroy')->name('medias_destroy');
 /* ----------------[ UPDATE MEDIAS ]---------------- */
 
-//§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
-//  END OF REFACTO  
-//§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
 /*
 |--------------------------------------------------------------------------
 | MAPPING

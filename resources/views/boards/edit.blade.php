@@ -15,7 +15,6 @@
 <div class="container modify board-edit">
 	<div class="card-body area">
 		<div id="imgModif">
-			<!-- <a id="see-areas" class="link-see-areas" href="{{ route('mapping_show',[$board->board_id]) }}"><i class="material-icons">visibility</i><span>Voir toutes les zones</span></a> -->
 
 			@if(Auth::check() && $comic->fk_user_id === Auth::user()->id || Auth::check() && Auth::user()->fk_role_id === 3) 
 			<p id="see-areas" class="link-see-areas"><i class="material-icons">visibility</i><span>Voir toutes les zones</span></p>
@@ -29,10 +28,8 @@
 			@endif
 
 			<map id="map_object" name="planetmap">
-				<!-- avec/sans media -->
 				@foreach ($areas as $zone) 
 				<area id="map{{ $zone->area_id }}" shape="poly" coords="{{ $zone->area_coord }}" data-maphilight='{"alwaysOn": true,"strokeColor":"0000ff","strokeWidth":2,"fillColor":"0000ff","fillOpacity":0.6}' data-style= "without-media" href="">
-				<!-- <a href="{{ route('mapping_delete',[$comic->comic_id, $board->board_id, $zone->area_id]) }}">Supprimer la zone {{ $zone->area_id }}</a> -->
 				@endforeach
 			</map>  
 		</div>
@@ -427,8 +424,8 @@ $.fn.maphilight.defaults = {
 
 </script>
 <script>
+	$('.map').maphilight();
 	$('#see-areas').click(function(){
-		$('.map').maphilight();
 		// $('area').css("cursor", "url(/img/delete.svg), pointer" );
 		$('area').css("cursor", "pointer" );
 		$( "#hide-areas" ).toggle();
@@ -460,15 +457,25 @@ $.fn.maphilight.defaults = {
 	var tabAreas = {!! json_encode($areas->toArray()) !!};
 
 	console.log(tabMedias);
-	// console.log(tabAreas);
+	console.log(tabAreas);
 
-	tabAreas.forEach(function(area){
+	Object.keys(tabAreas).forEach(function(area){
+
+ // var value = obj[key];
+	// tabAreas.forEach(function(area){
 		tabMedias.forEach(function(media){
 
-			var mediaId = media.media_id;
-			var zoneId = area.fk_media_id;
 
-			if(mediaId === zoneId){
+			var mediaId = media.media_id;
+			// var zoneId = area.fk_media_id;
+			var zoneId = tabAreas[area].area_id;
+			var zoneMediaId = tabAreas[area].fk_media_id;
+
+			// console.log(zone);
+
+			if(mediaId === zoneMediaId){
+				console.log('media'+mediaId);
+				console.log('zone'+zoneId);
 
 				// console.log(mediaId);
 				// console.log(zoneId);

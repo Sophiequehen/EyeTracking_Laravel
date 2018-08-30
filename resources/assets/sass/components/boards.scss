@@ -52,6 +52,47 @@
 
 }
 
+
+
+/*==================================
+=            BOARD-EDIT            =
+==================================*/
+
+.modal-delete-area{
+	display: none;
+	position: fixed;
+	z-index: 999;
+	top: 50%; left: 50%;
+	transform: translate(-50%, -50%); /* 50% offset of its own size */
+	width: 400px;
+	height: 260px;
+	background: white;
+	border: 20px solid $main-color;
+	p{
+		font-family: $display-font;
+		text-align: center;
+		font-size: 1.7em;
+		padding: 30px;
+	}
+	.modal-delete-buttons{
+		display: flex;
+		justify-content: space-around;
+		a{
+			// background: $main-color;
+			border: 1px solid $main-color; 
+			color: $main-color;
+			padding: 10px 20px;
+			text-decoration: none;
+		}
+		a:hover{
+			background: $main-color;
+			color: white;
+			padding: 10px 20px;
+			text-decoration: none;
+		}
+	}
+}
+
 .link-full-screen, .link-go-board{
 	cursor: pointer;
 	text-decoration: none;
@@ -126,6 +167,7 @@ a#full-screen:hover{
 		}
 
 		.board-pagination{
+			cursor: pointer;
 			margin-top: 30px;
 			position: fixed;
 		}
@@ -199,3 +241,6 @@ a#full-screen:hover{
 	to {left: 200px}
 }
 /*=====  Enboard-pagination animation  ===*/
+
+
+/*=====  End of BOARD-EDIT  ======*/

@@ -12,13 +12,17 @@
 	<a id="full-screen" class="link-full-screen" href="{{ route('board-fullscreen',[$comic->comic_id, $board->board_id]) }}"><i class="material-icons">fullscreen</i><span>Lire en plein écran</span></a>
 </section>
 
+<div class="modal-delete-area">
+	<p>Êtes-vous sûr(e) de vouloir supprimer cette zone ?</p>
+	<div class="modal-delete-buttons">
+		<div class="grp-delete-buttons"><a id="cancel-delete-area" href="">ANNULER</a></div>
+		<div id="delete-area" class="grp-delete-buttons"><a href="">SUPPRIMER</a></div>
+	</div>
+</div>
+
 <div class="container modify board-edit">
 	<div class="card-body area">
 		<div id="imgModif">
-			
-			<!-- @foreach($allboards as $uneboard)
-			<p>{{ $uneboard->board_number }}</p>
-			@endforeach -->
 
 			@if ($board->board_number < count($allboards))
 			<div class="board-pagination next"><a href="{{ route('board-edit',[$comic->comic_id, $nextboard->board_id]) }}"><img src="/img/next.png"></a></div>
@@ -446,19 +450,46 @@ $.fn.maphilight.defaults = {
 		$( "#see-areas" ).toggle();
 		location.reload(true);
 	});
+
+	$('#cancel-delete-area').click(function(){
+		event.preventDefault();
+		$('.modal-delete-area').toggle();
+	});
+	
+	var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
 	$('area').each(function(){
 		var data = $(this).data('maphilight');  
 		$(this).click(function(event){
 			event.preventDefault();
-			console.log($(this));
-			console.log($(this)[0].coords);
-		})
-		// $(this).data('maphilight', data).trigger('alwaysOn.maphilight');
-		// $(this).click(function(){
-		// 	console.log($(this));
-            //    redirige vers ./area/{id}
-        // });
-    });
+			// console.log($(this));
+			console.log($(this)[0].attributes[0].nodeValue);
+			var idtostore = $(this)[0].attributes[0].nodeValue.substr(3);
+			// console.log($(this)[0].coords);
+			console.log(idtostore);
+			$('.modal-delete-area').toggle();
+			$('#delete-area').html('<a href="/mapping/delete/'+idtostore+'">SUPPRIMER</a>');
+
+// tests to post js variable in AjaxController to get a variable utilisable in blade
+// finally the route is used directly with slashes with .html() so we can use the js variable but keep it in exemple
+			// $.ajax({
+			// 	/* the route pointing to the post function */
+			// 	url: '/postajax',
+			// 	type: 'POST',
+			// 	/* send the csrf-token and the input to the controller */
+			// 	data: {_token: CSRF_TOKEN, idstored: idtostore},
+			// 	dataType: 'JSON',
+			// 	/* remind that 'data' is the response of the AjaxController */
+			// 	success: function (data) { 
+			// 		console.log(data);
+			// 		console.log(data.idArea);
+			// 	}, 
+
+			// 	error: function(error){
+			// 		console.log('error');
+			// 	}
+			// })
+		});
+	});
 </script>
 
 <script type="text/javascript">

@@ -129,12 +129,11 @@ class AreaController extends Controller
      * @return \Illuminate\Http\Response
      */
     
-    public function destroy($idBD, $idPage, $idArea)
+    public function destroy($idArea)
     {
 
         Area::where('area_id', $idArea)->delete();
-        return redirect()->route('board-edit', ['idBD' => $idBD, 'idPage' => $idPage])->with('delete','Zone supprimée');
-
-
+        // return redirect()->route('board-edit', ['idBD' => $idBD, 'idPage' => $idPage])->with('delete','Zone supprimée');
+        return redirect()->back();
     }
 }

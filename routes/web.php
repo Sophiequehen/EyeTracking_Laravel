@@ -91,6 +91,5 @@ Route::post('/mapping/update/{idPage}', 'AreaController@update');
 /* ----------------[ DELETE MAPPING ]---------------- */
 Route::get('/mapping/delete/{idArea}', 'AreaController@destroy')->name('mapping_delete');
 
-
-// IMPORTANT 
-// pour update une zone , on peux gérer le click sur un zone dans le fichier js mappingRead.js (ligne 15)
+//ajax
+Route::post('/postajax','AjaxController@post');

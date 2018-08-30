@@ -15,9 +15,17 @@
 <div class="container modify board-edit">
 	<div class="card-body area">
 		<div id="imgModif">
-			<div class="board-pagination before"><a><img src="/img/previous.png"></a></div>
-			<div class="board-pagination next"><a><img src="/img/next.png"></a></div>
+			
+			<!-- @foreach($allboards as $uneboard)
+			<p>{{ $uneboard->board_number }}</p>
+			@endforeach -->
 
+			@if ($board->board_number < count($allboards))
+			<div class="board-pagination next"><a href="{{ route('board-edit',[$comic->comic_id, $nextboard->board_id]) }}"><img src="/img/next.png"></a></div>
+			@endif
+			@if ($board->board_number !== 1)
+			<div class="board-pagination before"><a href="{{ route('board-edit',[$comic->comic_id, $previousboard->board_id]) }}"><img src="/img/previous.png"></a></div>
+			@endif
 			@if(Auth::check() && $comic->fk_user_id === Auth::user()->id || Auth::check() && Auth::user()->fk_role_id === 3) 
 			<p id="see-areas" class="link-see-areas"><i class="material-icons">visibility</i><span>Voir toutes les zones</span></p>
 			<p id="hide-areas" class="link-hide-areas" style="display: none"><i class="material-icons">visibility_off</i><span>Cacher les zones</span></p>

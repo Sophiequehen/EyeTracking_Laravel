@@ -129,10 +129,13 @@ class BoardsController extends Controller
         $users = User::all();
         $comic = Comic::all()->where('comic_id', $idBD)->first();  
         $board = Board::all()->where('board_id',$idPage)->first();
+        $allboards = Board::all()->where('fk_comic_id', $idBD);
+        $nextboard = Board::all()->where('fk_comic_id', $idBD)->where('board_number', $board->board_number + 1)->first();
+        $previousboard = Board::all()->where('fk_comic_id', $idBD)->where('board_number', $board->board_number - 1)->first();
         $medias = Media::all();
         $areas = Area::all()->where('fk_board_id', $idPage); 
 
-        return view('boards.edit', ['comic' => $comic, 'medias' => $medias, 'areas' => $areas, 'board' => $board, 'users' => $users]);
+        return view('boards.edit', ['previousboard' => $previousboard,'nextboard' => $nextboard, 'allboards' => $allboards, 'comic' => $comic, 'medias' => $medias, 'areas' => $areas, 'board' => $board, 'users' => $users]);
     }
 
     /**

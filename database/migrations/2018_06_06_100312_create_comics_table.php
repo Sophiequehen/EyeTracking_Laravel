@@ -20,7 +20,7 @@ class CreateComicsTable extends Migration
             $table->string('comic_publisher', 100)->nullable();;
             $table->string('comic_member', 300);
             $table->string('comic_miniature_url', 100);
-            $table->string('comic_description', 3500);
+            $table->text('comic_description');
             $table->boolean('comic_publication')->default(0);
             $table->unsignedInteger('fk_user_id');
             $table->timestamps();

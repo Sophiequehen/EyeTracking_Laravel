@@ -441,7 +441,7 @@ $.fn.maphilight.defaults = {
 	$('#see-areas').click(function(){
 		$('.map').maphilight();
 		// $('area').css("cursor", "url(/img/delete.svg), pointer" );
-		$('area').css("cursor", "pointer" );
+		$('area').css("cursor", "url(/img/delete.png), pointer" );
 		$( "#hide-areas" ).toggle();
 		$( "#see-areas" ).toggle();
 	});

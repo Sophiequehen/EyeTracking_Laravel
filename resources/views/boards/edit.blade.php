@@ -451,7 +451,7 @@ $.fn.maphilight.defaults = {
 		location.reload(true);
 	});
 
-	$('#cancel-delete-area').click(function(){
+	$('#cancel-delete-area').click(function(event){
 		event.preventDefault();
 		$('.modal-delete-area').toggle();
 	});

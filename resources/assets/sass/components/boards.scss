@@ -167,19 +167,21 @@ a#full-screen:hover{
 		}
 
 		.board-pagination{
-			cursor: pointer;
 			margin-top: 30px;
 			position: fixed;
+			img{
+				cursor: pointer;
+			}
 		}
 
 		.board-pagination.next{
-			right: 200px;
+			margin-left: 850px;
 			-webkit-animation: paginationmoveleft 2s; /* Safari 4.0 - 8.0 */
 			animation: paginationmoveleft 2s;
 		}
 
 		.board-pagination.before{
-			left: 200px;
+			margin-right: 850px;
 			-webkit-animation: paginationmoveright 2s; /* Safari 4.0 - 8.0 */
 			animation: paginationmoveright 2s;
 		}
@@ -219,26 +221,26 @@ a#full-screen:hover{
 =============================================*/
 /* Safari 4.0 - 8.0 */
 @-webkit-keyframes paginationmoveleft {
-	from {right: 0px}
-	to {right: 200px}
+	from {margin-left: 1350px}
+	to {margin-left: 850px}
 }
 
 /* Standard syntax */
 @keyframes paginationmoveleft {
-	from {right: 0px}
-	to {right: 200px}
+	from {margin-left: 1350px}
+	to {margin-left: 850px}
 }
 
 /* Safari 4.0 - 8.0 */
 @-webkit-keyframes paginationmoveright {
-	from {left: 0px}
-	to {left: 200px}
+	from {margin-right: 1350px}
+	to {margin-right: 850px}
 }
 
 /* Standard syntax */
 @keyframes paginationmoveright {
-	from {left: 0px}
-	to {left: 200px}
+	from {margin-right: 1350px}
+	to {margin-right: 850px}
 }
 /*=====  Enboard-pagination animation  ===*/
 

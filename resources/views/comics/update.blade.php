@@ -83,7 +83,7 @@ Modifier Bande dessinée
 
         <div>
             <label for="numero-board">Numéro de la planche :</label>
-            @if(count($lastpage) !== 0)
+            @if($lastpage !== 0)
             <input type="number" id="numero-board" name="numero-board" value="{{ $lastpage->board_number + 1 }}"/>
             @else
             <input type="number" id="numero-board" name="numero-board" value="1"/>

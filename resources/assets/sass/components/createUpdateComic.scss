@@ -36,6 +36,58 @@
 }
 .container.modify{
 
+	div#liste-planches{
+		.modal-delete-board{
+			display: none;
+			position: fixed;
+			z-index: 999;
+			top: 50%; left: 50%;
+			transform: translate(-50%, -50%); /* 50% offset of its own size */
+			width: 450px;
+			height: 300px;
+			background: white;
+			border: 20px solid $main-color;
+			p{
+				font-family: $display-font;
+				text-align: center;
+				font-size: 1.7em;
+				padding: 30px;
+			}
+			.modal-delete-buttons{
+				display: flex;
+				justify-content: space-around;
+				a{
+					// background: $main-color;
+					border: 1px solid $main-color; 
+					color: $main-color;
+					padding: 10px 20px;
+					text-decoration: none;
+				}
+				a:hover{
+					background: $main-color;
+					color: white;
+					padding: 10px 20px;
+					text-decoration: none;
+				}
+			}
+		}
+		a.delete-liste-planches{
+			width: 100%;
+			button{
+				width: 100%;
+				padding: 5px;
+				border: none;
+				border: 1px solid $main-color;
+				background: $main-color;
+				color: white;
+			}
+			button:hover{
+				background: white;
+				color: $main-color;
+			}
+		}
+	}
+
 	form{
 		margin-top: 0;
 		font-family: $main-font;

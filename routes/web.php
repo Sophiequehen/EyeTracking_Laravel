@@ -49,13 +49,10 @@ Route::post('/boards/store/{idBD}', 'BoardsController@store');
 Route::get('/boards/edit/{idBD}/{idPage}', 'BoardsController@edit')->name('board-edit');
 Route::get('/boards/fullscreen/{idBD}/{idPage}', 'BoardsController@read')->name('board-fullscreen');
 
-// Route::post('/boards/read/{idBD}/{idPage}', function ($idBD, $idPage) {
-// 	return view('boards.read', ['idBD' => $idBD], ['idPage' => $idPage]);
-// }) -> name('board_read');
 /* ----------------[ UPDATE PAGES ]---------------- */
-// not done
+// not necessary
 /* ----------------[ DELETE PAGES ]---------------- */
-// not done
+Route::get('/boards/delete/{idBoard}', 'BoardsController@destroy')->name('board-delete');
 /*
 |-----------------------------------------------------------------------
 | MEDIAS

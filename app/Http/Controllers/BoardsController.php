@@ -156,8 +156,13 @@ class BoardsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($idBoard)
     {
-        //
+        $areas = Area::all()->where('fk_board_id', $idBoard);
+        foreach ($areas as $area) {
+            $area->delete();
+        }
+        Board::where('board_id', $idBoard)->delete();
+        return redirect()->back();
     }
 }

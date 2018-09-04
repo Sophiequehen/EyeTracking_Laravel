@@ -102,12 +102,23 @@ Modifier Bande dessinée
     
     <div id="liste-planches" class="gallery-boards display-none">
 
+        <div class="modal-delete-board">
+            <p>Êtes-vous sûr(e) de vouloir supprimer cette planche et toutes les zones qui lui sont associées ?</p>
+            <div class="modal-delete-buttons">
+                <div class="grp-delete-buttons"><a id="cancel-delete-board" href="">ANNULER</a></div>
+                <div id="delete-board" class="grp-delete-buttons"><a href="">SUPPRIMER</a></div>
+            </div>
+        </div>
+
         <div class="gallery-boards">
             @foreach($boards as $board)
             <div class="small-card">
                 <a href="{{ route('board-edit',[$comic->comic_id, $board->board_id]) }}">
                     <img src="{{ $board->board_image }}">
                     <p>Planche {{ $board->board_number }}</p>
+                    @if(Auth::check() && $comic->fk_user_id === Auth::user()->id || Auth::check() && Auth::user()->fk_role_id === 3) 
+                    <a href="" class="delete-liste-planches"><button id="{{ $board->board_id }}">Supprimer</button></a>
+                    @endif
                 </a>
             </div>
             @endforeach
@@ -116,4 +127,25 @@ Modifier Bande dessinée
         
 
     </div>
-    @endsection
+</div>
+@endsection
+
+@section('extraJS')
+<script type="text/javascript">
+
+    var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+    $('.delete-liste-planches').each(function(){
+        var idBoard = $(this)[0].children[0].attributes.id.value;
+        $('.delete-liste-planches').click(function(event){
+            event.preventDefault();
+            $('.modal-delete-board').toggle();
+            $('#delete-board').html('<a href="/boards/delete/'+idBoard+'">SUPPRIMER</a>');
+        })
+    });
+
+    $('#cancel-delete-board').click(function(event){
+        event.preventDefault();
+        $('.modal-delete-board').toggle();
+    });
+</script>
+@endsection

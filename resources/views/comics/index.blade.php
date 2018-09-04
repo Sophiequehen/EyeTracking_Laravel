@@ -111,7 +111,7 @@ Catalogue
       </ul>
     </div>
     <div class="read_edit_catalog">
-      @if(Auth::check() && $comic->fk_user_id === Auth::user()->id) 
+      @if(Auth::check() && $comic->fk_user_id === Auth::user()->id && $comic->comic_publication === 0) 
       <a  href="{{ route ('comics_update', $comic->comic_id ) }}" id="button_edit_catalog"><button class="btn-catalogue">Modifier</button></a>
       @endif 
     </div>
@@ -141,10 +141,5 @@ Catalogue
   @endif
   @endforeach
 
-
 </section>  
-<div class="nav_catalog">
-  <a><button class="btn-pagination">< Previous</button></a>
-  <a><button class="btn-pagination">Next ></button></a>
-</div>
 @endsection

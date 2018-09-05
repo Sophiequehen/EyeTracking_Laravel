@@ -159,10 +159,41 @@ class BoardsController extends Controller
     public function destroy($idBoard)
     {
         $areas = Area::all()->where('fk_board_id', $idBoard);
+        $zones = Area::all()->where('fk_board_id', '!=', $idBoard);
+
+        $tab_media_id = array();
         foreach ($areas as $area) {
+
+            array_push($tab_media_id, $area-> fk_media_id);
             $area->delete();
         }
-        Board::where('board_id', $idBoard)->delete();
+
+        $board = Board::where('board_id', $idBoard)->first();
+        $path_delete = substr($board->board_image, 9);
+        Storage::delete('public/'.$path_delete);
+        $board->delete();
+
+        foreach ($tab_media_id as $mediaId) {
+            var_dump($mediaId);
+            $medias = Media::all()->where('media_id', $mediaId);
+
+            foreach ($medias as $media) {
+                $use = 0;
+                foreach ($zones as $zone) {
+                    if ($zone-> fk_media_id === $mediaId) {
+                        $use += 1;
+                    }
+                }
+                if ($use === 0) {
+                    $media-> media_use = false;
+                }else{
+                    $media-> media_use = true;
+                }
+                // var_dump($media-> media_use);
+                $media->save();
+            }
+        }
+
         return redirect()->back();
     }
 }

@@ -132,7 +132,24 @@ class AreaController extends Controller
     public function destroy($idArea)
     {
 
-        Area::where('area_id', $idArea)->delete();
+        $area = Area::where('area_id', $idArea)->first();
+        $mediaId = $area-> fk_media_id;
+        $media = Media::all()->where('media_id', $mediaId)->first();
+        $area->delete();
+        $zones = Area::all();
+        $use = 0;
+        foreach ($zones as $zone) {
+            if ($zone-> fk_media_id === $mediaId) {
+                $use += 1;
+            }
+        }
+        if ($use === 0) {
+            $media-> media_use = false;
+        }else{
+            $media-> media_use = true;
+        }
+
+        $media->save();
         // return redirect()->route('board-edit', ['idBD' => $idBD, 'idPage' => $idPage])->with('delete','Zone supprimée');
         return redirect()->back();
     }

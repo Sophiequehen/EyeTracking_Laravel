@@ -100,6 +100,7 @@ Liste des médias
 
 
 			@endforeach
+			{{ $medias->links() }}
 
 
 		</div>

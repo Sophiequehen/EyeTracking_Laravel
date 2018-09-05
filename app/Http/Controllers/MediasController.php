@@ -27,7 +27,8 @@ class MediasController extends Controller
 		
 		$areas = Area::all();
 		$users = User::all();
-		$medias = Media::all();
+		$medias = Media::orderBy('created_at', 'desc')->paginate(12);
+		// $medias = Media::sortByDesc('created_at')->paginate(5);
 		return view('medias.read', ['areas' => $areas, 'medias' => $medias, 'users' => $users]);
 	}
 

@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Storage;
 use App\Comic;
 use App\Board;
 use App\User;
+use App\Area;
+use App\Media;
 
 
 /*
@@ -172,12 +174,57 @@ class ComicsController extends Controller
     {
         $comic = Comic::where('comic_id', $id)->first();
         $path_delete = substr($comic->comic_miniature_url, 9);
-
         Storage::delete('public/'.$path_delete);
-        Comic::where('comic_id', $id)->delete();
+        $boards = Board::all()->where('fk_comic_id', $id);
+        $countBoard = Board::all()->where('fk_comic_id', $id)->count();
+        var_dump($countBoard);
+        if ($countBoard !== 0) {
 
+            foreach ($boards as $board) {
+
+                $areas = Area::all()->where('fk_board_id', $board->board_id);
+                $zones = Area::all()->where('fk_board_id', '!=', $board->board_id);
+                $tab_media_id = array();
+
+                foreach ($areas as $area) {
+
+                    array_push($tab_media_id, $area-> fk_media_id);
+                // var_dump($area-> area_id);
+                    $area->delete();
+                }
+                $path_delete = substr($board->board_image, 9);
+                Storage::delete('public/'.$path_delete);
+                $board->delete();
+                // var_dump($board->board_id);
+
+            }
+            foreach ($tab_media_id as $mediaId) {
+                // var_dump($mediaId);
+                $medias = Media::all()->where('media_id', $mediaId);
+
+                foreach ($medias as $media) {
+                    $use = 0;
+                    foreach ($zones as $zone) {
+                        if ($zone-> fk_media_id === $mediaId) {
+                            $use += 1;
+                        }
+                    }
+                    if ($use === 0) {
+                        $media-> media_use = false;
+                    }else{
+                        $media-> media_use = true;
+                    }
+                    // var_dump($media-> media_use);
+                    $media->save();
+                }
+            }
+
+            $comic->delete();
+
+        }else{
+            $comic->delete();
+        }   
         return redirect()->route('comics_index')->with('delete','BD supprimée');
-        
 
     }
 }

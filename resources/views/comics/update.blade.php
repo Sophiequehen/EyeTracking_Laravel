@@ -73,7 +73,7 @@ Modifier Bande dessinée
         @endif
         <div class="update-buttons">
             <input class="btn-outline" type="submit" value="MODIFIER"/>
-            <a href="{{route('comic_delete',[$comic->comic_id])}}"><button class="btn-outline">SUPPRIMER LA BANDE DESSINÉE</button></a>
+            <a href="{{route('comic_delete',[$comic->comic_id])}}"><div class="btn-outline delete">SUPPRIMER LA BANDE DESSINÉE</div></a>
         </div>
     </form>
 

@@ -158,7 +158,7 @@
 			transition: 0.5s;
 		}
 
-		button.btn-outline{
+		button.btn-outline, div.btn-outline{
 			// margin: 20px 0px 0px 0px;
 			width: 100%;
 			margin: 0;
@@ -167,7 +167,7 @@
 			color: white;
 		}
 
-		button.btn-outline:hover{
+		button.btn-outline:hover, div.btn-outline:hover{
 			text-decoration: none;
 			border: 1px solid $danger-color !important;
 			background: white;
@@ -193,6 +193,15 @@
 			justify-content: space-between;
 			input, a{
 				width: 250px;
+			}
+			.delete{
+				height: 45px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			a:hover{
+				text-decoration: none;
 			}
 		}
 	}

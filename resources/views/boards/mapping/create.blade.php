@@ -14,13 +14,13 @@ Créer une zone
             @csrf
 
             <div class="area-form-manage">
-                <div>
+                <!-- <div>
                     <div id="form-tps" >
                         <label for="tpsDeclenchement">Temps de déclenchement :</label>
                         <input type="number" name="trigger" class="form-control" id="tpsDeclenchement" value="1">
                         <p>Millisecondes</p>
                     </div>
-                </div>
+                </div> -->
                 
                 <!-- if file does not comply / do not pass validations -->
                 @if ($errors->any())
@@ -34,6 +34,7 @@ Créer une zone
                 @endif
 
                 <!-- if the sending in the db is successful. the two possible $ results are modifiable in mediascontroller line 45 & 50 -->
+                <a id="go-board" class="link-go-board" href="{{ route('board-edit',[$comic->comic_id, $board->board_id]) }}"><i class="material-icons">arrow_back</i><span>Retourner à la planche</span></a>
 
                 <select name="dataType" required>
                     <option selected disabled>Sélectionner un média</option> 
@@ -51,7 +52,6 @@ Créer une zone
                     <a class="" href="{{ route('mapping_show',[$board->board_id]) }}"><i class="material-icons">visibility</i><span>Voir toutes les zones</span></a>
                 </div> -->
                 <div class="page">
-                    <a id="go-board" class="link-go-board" href="{{ route('board-edit',[$comic->comic_id, $board->board_id]) }}"><i class="material-icons">arrow_back</i><span>Retourner à la planche</span></a>
 
                     <textarea name="coords1" class="canvas-area input-xxlarge" placeholder="Shape Coordinates" data-image-url="{{ $board->board_image }}" style="display: none;">
                     </textarea>

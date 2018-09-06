@@ -89,7 +89,7 @@ class AreaController extends Controller
 
         $area = new Area;
         $area-> area_coord = request('coords1');
-        $area-> area_trigger = request('trigger');
+        $area-> area_trigger = 1;
         $area-> fk_board_id = $idPage;
         $area-> fk_media_id = request('dataType');
         $area->save();

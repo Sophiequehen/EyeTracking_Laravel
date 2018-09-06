@@ -55,10 +55,10 @@ class ComicsController extends Controller
      */
     public function show($id)
     {
-     $comic = Comic::all()->where('comic_id', $id)->first();  
-     $boards = Board::all()->where('fk_comic_id',$id);
-     return view('comics.show', ['comic' => $comic,'boards' => $boards]);
- }
+       $comic = Comic::all()->where('comic_id', $id)->first();  
+       $boards = Board::all()->where('fk_comic_id',$id);
+       return view('comics.show', ['comic' => $comic,'boards' => $boards]);
+   }
 
     /**
      * Store a newly created resource in storage.
@@ -177,7 +177,6 @@ class ComicsController extends Controller
         Storage::delete('public/'.$path_delete);
         $boards = Board::all()->where('fk_comic_id', $id);
         $countBoard = Board::all()->where('fk_comic_id', $id)->count();
-        var_dump($countBoard);
         if ($countBoard !== 0) {
 
             foreach ($boards as $board) {
@@ -189,17 +188,14 @@ class ComicsController extends Controller
                 foreach ($areas as $area) {
 
                     array_push($tab_media_id, $area-> fk_media_id);
-                // var_dump($area-> area_id);
                     $area->delete();
                 }
                 $path_delete = substr($board->board_image, 9);
                 Storage::delete('public/'.$path_delete);
                 $board->delete();
-                // var_dump($board->board_id);
 
             }
             foreach ($tab_media_id as $mediaId) {
-                // var_dump($mediaId);
                 $medias = Media::all()->where('media_id', $mediaId);
 
                 foreach ($medias as $media) {
@@ -214,7 +210,6 @@ class ComicsController extends Controller
                     }else{
                         $media-> media_use = true;
                     }
-                    // var_dump($media-> media_use);
                     $media->save();
                 }
             }

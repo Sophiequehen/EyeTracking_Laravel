@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Role;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -61,12 +64,27 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
+    protected function create(Request $request)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+        // $user = new User;
+        // $user-> name = request('name');
+        // $user-> fk_role_id = request('role');
+        // $user-> email = request('email');
+        // $user-> password = Hash::make(request('password'));
+        // $user->save();
+        var_dump('new user');
+        // return redirect()->back()->with('add','Utilisateur correctement ajouté.');
     }
+
+    // protected function create(Request $request, array $data)
+    // {
+    //     return User::create([
+    //         'name' => $data['name'],
+    //         'email' => $data['email'],
+    //         'password' => Hash::make($data['password']),
+    //         'fk_role_id' => request('role'),
+    //     ]);
+    // }
+
+
 }

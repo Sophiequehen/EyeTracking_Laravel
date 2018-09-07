@@ -11,6 +11,10 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/legalmentions', function () {
 	return view('others.legal_mentions');
 })->name('legalmentions');
+//register
+Route::get('/inscription', 'RoleController@index')->name('new-register');
+//create user
+Route::post('/user/store', 'UserController@store')->name('register-store');
 /*
 |--------------------------------------------------------------------------
 | COMICS

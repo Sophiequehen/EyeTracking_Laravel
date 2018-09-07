@@ -1,6 +1,46 @@
 #sectionListMedia{
 	font-family: $main-font;
 	text-align: center;
+	.modal-delete-media{
+		// display: none;
+		position: fixed;
+		z-index: 999;
+		top: 50%; left: 50%;
+		transform: translate(-50%, -50%); /* 50% offset of its own size */
+		width: 450px;
+		height: 267px;
+		background: white;
+		border: 20px solid $main-color;
+		p{
+			font-family: $display-font;
+			text-align: center;
+			font-size: 1.7em;
+			padding: 30px;
+		}
+		.modal-delete-buttons{
+			display: flex;
+			justify-content: center;
+			#delete-board{
+				margin-left: 25px;
+			}
+			#cancel-delete-board{
+				margin-right: 25px;
+			}
+			a{
+				// background: $main-color;
+				border: 1px solid $main-color; 
+				color: $main-color;
+				padding: 10px 20px;
+				text-decoration: none;
+			}
+			a:hover{
+				background: $main-color;
+				color: white;
+				padding: 10px 20px;
+				text-decoration: none;
+			}
+		}
+	}
 
 	li{
 		list-style:none;

@@ -30,21 +30,16 @@ Liste des médias
 
 	<!-- CONFIRMATION ALERT UPON MEDIA DELETION -->
 	@if ($message = Session::get('alert_delete'))
-	<div class="modal-content alert-warning">
-		<div class="modal-header">
-			<h4 class="alert-heading col-12">Suppression en cours</h4>
-		</div>
-		<p>
-			Voulez-vous vraiment supprimer le media suivant :
-			{{ $message }} ?
-		</p>
-	</br>
-	<div class="mb-0">
-		<a href="{{ route('medias_destroy', ['name' => $message ]) }}" class="btn btn-danger">Supprimer</a>
-		<a href="{{ route('medias') }}" class="btn btn-warning">Annuler</a>
-	</div>
-	<div class="modal-footer">
-		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	<div class="modal-delete-media">
+		<p>Êtes-vous sûr(e) de vouloir supprimer le media :
+		{{ $message }} ?</p>
+		<div class="modal-delete-buttons">
+			<div class="grp-delete-buttons">
+				<a id="cancel-delete-board" href="{{ route('medias') }}">ANNULER</a>
+			</div>
+			<div id="delete-board" class="grp-delete-buttons">
+				<a href="{{ route('medias_destroy', ['name' => $message ]) }}">SUPPRIMER</a>
+			</div>
 		</div>
 	</div>
 	@endif

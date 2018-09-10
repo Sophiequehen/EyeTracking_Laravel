@@ -5,6 +5,28 @@ Créer une zone
 @endsection
 
 @section('content')
+
+<!-- ALERT UPON ADDING MEDIA -->
+@if ($message = Session::get('add'))
+<div class="alert alert-success alert-dismissible" role="alert">
+    {{ $message }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+@endif
+
+<!-- ALERT UPON MEDIA CREATION FAILURE -->
+@if ($message = Session::get('duplicate'))
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    {{ $message }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+@endif
+
+
 <div class="container modify">
 
     @php if(isset($result)) echo $result; @endphp
@@ -38,11 +60,12 @@ Créer une zone
 
                 <select name="dataType" required>
                     <option selected disabled>Sélectionner un média</option> 
+                    <option >Sélectionner un média</option> 
                     @foreach($medias as $media)
                     <option value="{{ $media->media_id }}">{{ $media->media_filename }}</option>
                     @endforeach
                 </select>
-
+                <a href="{{ route('medias_create_from_board',[$comic->comic_id, $board->board_id]) }}"><img class="add-media" src="/img/add.png"></a>
                 <input type="submit" class="btn-outline" value="Valider"/>
             </div>
 

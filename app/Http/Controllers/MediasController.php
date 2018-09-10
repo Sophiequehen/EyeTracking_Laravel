@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Comic;
+use App\Board;
 use App\Media;
 use App\User;
 use App\Area; 
@@ -38,6 +39,13 @@ class MediasController extends Controller
 		return view('medias.create');
 	}
 
+	public function createFromBoard($idBD, $idPage, Request $request)
+
+	{
+		$comic = Comic::where('comic_id', $idBD)->first();
+		$board = Board::where('board_id', $idPage)->first();
+		return view('medias.create-from-board', ['comic' => $comic, 'board' => $board]);
+	}
 
 	public function store(Request $request)
 	{
@@ -94,6 +102,38 @@ class MediasController extends Controller
 			//success
 			$medias->save();
 			return redirect()->route('medias')->with('add','Media correctement ajouté.');
+		}
+	}
+
+	public function storeFromBoard($idBD, $idPage, Request $request)
+	{
+
+	//stores the file in the media folder
+		$originalName = $request->file('media')->getClientOriginalName();
+		$pathstart = $request->file('media')->storeAs('public/medias/', $originalName);
+
+	//removes the "public"
+		$path = substr($pathstart, 7);
+		$dataType = request('dataType');
+
+		$medias = new Media;
+		$medias-> fk_user_id = Auth::user()->id;
+		$medias-> media_type = $dataType;
+		$medias-> media_filename = $originalName;
+		$medias-> media_path = '/storage/medias/'.$originalName;
+
+		//verifies if the media is already present
+		$verif_media = Media::all()->where('media_type',$medias-> media_type)
+		->where('media_filename',$medias-> media_filename)
+		->where('media_path',$medias-> media_path);
+
+		if(count($verif_media)>0){
+			//media already present, abort.
+			return redirect()->route('mapping_create',[$idBD, $idPage])->with('duplicate','Le média existe déjà.');
+		}else{
+			//success
+			$medias->save();
+			return redirect()->route('mapping_create',[$idBD, $idPage])->with('add','Media correctement ajouté.');
 		}
 	}
 

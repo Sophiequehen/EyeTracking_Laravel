@@ -67,8 +67,10 @@ Route::get('/boards/delete/{idBoard}', 'BoardsController@destroy')->name('board-
 Route::get('/medias/read', 'MediasController@index')->name('medias');
 /* ----------------[ CREATE MEDIAS ]---------------- */
 Route::get('/medias/create', 'MediasController@create')->name('medias_create');
+Route::get('/medias/create-from-board/{idBD}/{idPage}', 'MediasController@createFromBoard')->name('medias_create_from_board');
 /* ----------------[ UPLOAD MEDIAS ]---------------- */
 Route::post('/medias/store', 'MediasController@store');
+Route::post('/medias/storeFromBoard/{idBD}/{idPage}', 'MediasController@storeFromBoard');
 /* ----------------[ DELETE MEDIAS ]---------------- */
 //appellée par un bouton par media sur la page /medias
 Route::get('/medias/delete/{id}', 'MediasController@delete')->name('medias_delete');

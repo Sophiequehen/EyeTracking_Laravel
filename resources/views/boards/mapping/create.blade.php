@@ -30,7 +30,6 @@ Créer une zone
 <div class="container modify">
 
     @php if(isset($result)) echo $result; @endphp
-
     <div class="card-body area">
         <form class="area-form" method="post" action=" {{action('AreaController@store', [$comic->comic_id, $board->board_id])}}" enctype="multipart/form-data">
             @csrf

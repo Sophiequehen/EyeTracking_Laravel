@@ -84,11 +84,12 @@ class AreaController extends Controller
      */
     public function store($idBD, $idPage, Request $request)
     {
-            // var_dump( request('dataType'));
-        // var_dump($request->all());
 
         $area = new Area;
         $area-> area_coord = request('coords1');
+        if ($area-> area_coord == NULL) {
+            return redirect()->back()->with('duplicate','Pas de zone sélectionnée');
+        }
         $area-> area_trigger = 1;
         $area-> fk_board_id = $idPage;
         $area-> fk_media_id = request('dataType');
@@ -101,7 +102,7 @@ class AreaController extends Controller
 
     }
 
-    
+
     // Récupère une Bande-Dessinée unique necéssaire pour le update
     public function edit($id)
     {

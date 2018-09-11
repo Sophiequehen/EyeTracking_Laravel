@@ -108,7 +108,7 @@ Liste des médias
 
 		<div class="row justify-content-center">
 
-			@foreach ($medias as $media)
+			@foreach ($medias_all as $media)
 			@if(Auth::check() && Auth::user()->id === $media->fk_user_id)
 			<article class="comics_catalog">
 

@@ -1,6 +1,29 @@
 #sectionListMedia{
 	font-family: $main-font;
 	text-align: center;
+
+	.medias-pagination{
+		margin-top: 30px;
+		display: flex;
+		justify-content: center;
+		ul.pagination{
+			margin: 0;
+			a, li{
+				color: $main-color;
+			}
+			.page-link:hover{
+				background: #fef8d9;
+			}
+			li.page-item.active{
+				span.page-link{
+					background: $main-color;
+					border-color: $main-color;	
+					color: white;
+				}
+			}
+		}
+	}
+
 	.modal-delete-media{
 		// display: none;
 		position: fixed;
@@ -105,6 +128,19 @@
 
 		a.btn-catalogue.medias{
 			width: 150px;
+		}
+
+		a.btn-catalogue.medias.used{
+			background: #91839c;
+			color: white;
+			border: 1px solid #91839c;
+		}
+
+		a.btn-catalogue.medias.used:hover{
+			cursor: default;
+			// background: white;
+			// color: #91839c;
+			// border: 1px solid #91839c;
 		}
 
 		img.card-img-top{

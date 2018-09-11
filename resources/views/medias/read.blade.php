@@ -87,18 +87,71 @@ Liste des médias
 					<p class="card-text medias notuse">Non utilisé</p>
 					@endif
 
-					@if(Auth::check() && Auth::user()->fk_role_id === 3)
+					@if(Auth::check() && Auth::user()->fk_role_id === 3 && $media->media_use === 0)
 					<a href="{{ route('medias_delete', ['id' => $media->media_id]) }}" class="btn-catalogue medias">Supprimer</a>
+					@elseif(Auth::check() && Auth::user()->fk_role_id === 3 && $media->media_use === 1)
+					<a class="btn-catalogue medias used">Supprimer</a>
 					@endif
 				</div>
 			</article>
 
-
 			@endforeach
-			{{ $medias->links() }}
-
-
 		</div>
+		<div class="medias-pagination">
+			{{ $medias->links() }}
+		</div>
+		@if(Auth::check() && Auth::user()->fk_role_id === 3 || Auth::check() && Auth::user()->fk_role_id === 1) 
+		<section class="page-titles">
+			<h2>Vos Médias</h2>
+			<p>/</p>
+		</section>
+
+		<div class="row justify-content-center">
+
+			@foreach ($medias as $media)
+			@if(Auth::check() && Auth::user()->id === $media->fk_user_id)
+			<article class="comics_catalog">
+
+				@if ($media->media_type == 'img')
+				<img class="card-img-top " src="{{ $media->media_path }}" alt="Miniature">
+				@endif
+
+				@if ($media->media_type == 'video')
+				<!-- may need to do depending on video types (attribute type = "") -->
+				<img class="card-img-top" src="/img/video.png" alt="Miniature">
+				@endif
+
+				@if ($media->media_type == 'son')
+				<img class="card-img-top " src="/img/sound.png" alt="Miniature">
+				@endif
+
+				<div class="card-body">
+					<!-- <p class="card-filename">Nom du fichier :</p> -->
+					<h5 class="card-title">{{ $media->media_filename }}</h5>
+					@foreach ($users as $user)
+					@if($media->fk_user_id === $user->id)
+					<p class="card-text medias">Ajouté par</p>
+					<p class="card-text medias">{{ $user->name }}</p>
+					@endif
+					@endforeach
+
+					@if($media->media_use === 1)
+					<p class="card-text medias use">Utilisé</p>
+					@else
+					<p class="card-text medias notuse">Non utilisé</p>
+					@endif
+
+					@if(Auth::check() && Auth::user()->fk_role_id === 3 && $media->media_use === 0)
+					<a href="{{ route('medias_delete', ['id' => $media->media_id]) }}" class="btn-catalogue medias">Supprimer</a>
+					@elseif(Auth::check() && Auth::user()->fk_role_id === 3 && $media->media_use === 1)
+					<a class="btn-catalogue medias used">Supprimer</a>
+					@endif
+				</div>
+			</article>
+			@endif
+			@endforeach
+		</div>
+		@endif
 
 	</section>
 

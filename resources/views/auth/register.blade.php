@@ -11,6 +11,7 @@ Inscription
             <section class="page-titles">
                 <h2>Ajouter un utilisateur</h2>
                 <p>/</p>
+                <a id="see-users" class="link-see-user" href="{{ route('index-users') }}"><i class="material-icons">visibility</i><span>Voir les utilisateurs</span></a>
             </section>
             <div class="card-body">
                 <div class="container modify">

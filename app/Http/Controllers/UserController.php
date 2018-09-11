@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Role;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::all();
+        $roles = Role::all();
+        return view('others.users_index', ['users' => $users, 'roles' => $roles]);
+
     }
 
     /**
@@ -62,9 +66,13 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit($id)
     {
-        //
+        $user = User::all()->where('id', $id)->first();
+        $roleUser = Role::all()->where('role_id', $user->fk_role_id)->first();
+        $roles = Role::all();
+
+        return view('others.user-update', ['user' => $user, 'roleUser' => $roleUser, 'roles' => $roles]);
     }
 
     /**
@@ -74,9 +82,15 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update($id, Request $request)
     {
-        //
+        $user = User::where('id', $id)->first();
+        $user-> name = request('name');
+        $user-> email = request('email');
+        $user-> fk_role_id = request('role');
+        $user->save();
+
+        return redirect()->route('index-users')->with('update','Utilisateur mis à jour');
     }
 
     /**

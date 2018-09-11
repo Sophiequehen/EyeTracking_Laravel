@@ -15,6 +15,11 @@ Route::get('/legalmentions', function () {
 Route::get('/inscription', 'RoleController@index')->name('new-register');
 //create user
 Route::post('/user/store', 'UserController@store')->name('register-store');
+//see user
+Route::get('/user/index', 'UserController@index')->name('index-users');
+//update user
+Route::get('/user/update/{id}', 'UserController@edit')->name('update-user');
+Route::post('/user/update/{id}', 'UserController@update');
 /*
 |--------------------------------------------------------------------------
 | COMICS

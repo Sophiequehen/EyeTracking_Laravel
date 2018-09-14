@@ -1,3 +1,12 @@
 .navbar.navbar-expand-md.navbar-light.navbar-laravel{
 	font-family: $main-font;
 }
+#navbar-responsive{
+	display: none;
+}
+
+@media screen and (max-width: 770px) {
+	#navbar-responsive{
+		display: block;
+	}
+}

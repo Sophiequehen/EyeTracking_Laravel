@@ -41,6 +41,29 @@
         </li>
         @endguest
     </ul>
+    <div id="navbar-responsive">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a id="navbarDropdown" class="nav-link" href="{{ url('/') }}">ACCUEIL</a>
+            </li>
+            <li class="nav-item">
+                <a id="navbarDropdown" class="nav-link" href="{{ route('comics_index') }}">CATALOGUE</a>
+            </li>
+            @if(Auth::check() && Auth::user()->fk_role_id === 1 || Auth::check() && Auth::user()->fk_role_id === 3) 
+            <li class="nav-item">
+                <a id="navbarDropdown" class="nav-link" href="{{ route('medias') }}">MÉDIAS</a>
+            </li>
+            @endif
+            <li class="nav-item">
+                <a id="navbarDropdown" class="nav-link" href="{{ url('/legalmentions') }}">À PROPOS</a>
+            </li>
+        </ul>
+    </div>
 </div>
+
+<!-- <div class="burger-menu">
+    <img src="/img/burger.png">
+</div> -->
+
 </div>
 </nav>

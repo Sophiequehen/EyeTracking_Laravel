@@ -48,7 +48,7 @@ Inscription
                             {{ __("Modifier") }}
                         </button>
                     </form>
-                    <a href="{{ route('index-users') }}" class="btn-outline cancel-user">{{ __("Annuler") }}</a>
+                    <a href="{{ route('index-users') }}" class="btn-outline cancel-user responsive">{{ __("Annuler") }}</a>
                 </div>
             </div>
         </div>

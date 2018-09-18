@@ -42,7 +42,7 @@ Ajouter un média
 </div>
 @endif
 
-<form method="POST" enctype="multipart/form-data" action="{{ action('MediasController@store') }}" >
+<form class="add-media-responsive" method="POST" enctype="multipart/form-data" action="{{ action('MediasController@store') }}" >
     @csrf
     <section class="page-titles">
         <h2>Ajouter un média</h2>

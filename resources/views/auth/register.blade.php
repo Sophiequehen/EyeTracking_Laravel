@@ -8,7 +8,7 @@ Inscription
 <div class="container add-user">
     <div class="row justify-content-center">
         <div class="home_connect card">
-            <section class="page-titles">
+            <section class="page-titles responsive">
                 <h2>Ajouter un utilisateur</h2>
                 <p>/</p>
                 <a id="see-users" class="link-see-user" href="{{ route('index-users') }}"><i class="material-icons">visibility</i><span>Voir les utilisateurs</span></a>

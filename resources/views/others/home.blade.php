@@ -61,6 +61,7 @@ Accueil
             <h2>Vos bandes dessinées</h2>
             <p>/</p>
           </section>
+
           <section class="containers_catalog">
             @foreach ($comics_all as $comic)
             @if(Auth::check() && $comic->fk_user_id === Auth::user()->id) 

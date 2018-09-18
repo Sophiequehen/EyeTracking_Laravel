@@ -1,0 +1,189 @@
+@media screen and (max-width: 767px) {
+	//navbar under logo
+	#navbar{
+		display: none;
+	}
+	//navbar in burger menu
+	#navbar-responsive{
+		display: block;
+	}
+	.btn-catalogue.btn-login.responsive{
+		display: block;
+	}
+	//buttons to update comics
+	.btn-catalogue{
+		display: none;
+	}
+	//to not display delete buttons on medias
+	.btn-catalogue.medias{
+		display: block;
+	}
+	//button to add comic
+	.containers_catalog{
+		a.btn-add-bd{
+			display: none;
+		}
+	}
+	//move button for adding medias for a best layout
+	#addMedia{
+		margin-top: 10px;
+	}
+
+	//add media
+	.container.modify{
+		form.add-media-responsive{
+			width: 100%;
+			.page-titles{
+				padding: 0;
+			}
+		}
+	}
+
+	//legal mentions header
+	.contain-header.legal-responsive{
+		// display: none;
+		.header-comic{
+			width: 73%;
+		}
+		ul{
+			// width: 100%;
+		}
+	}
+	//legal mentions
+	.container.legal{
+		.societe-infos{
+			width: 100%;
+			padding-left: 0;
+			padding-right: 0;
+			div{
+				width: 100%
+			}
+		}
+	}
+
+	//Section for read boards + cover
+	.comic-show-responsive{
+		display: none;
+	}
+	//comic-show descriptif
+	.descriptif.responsive{
+		padding-left: 0;
+		width: 108%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		p.paragraph{
+			text-align: center;
+		}
+	}
+
+	//connexion and add user
+	.home_connect.card{
+		width: 100%;
+		.page-titles.responsive{
+			padding: 0;
+		}
+	}
+	.container.login-responsive{
+		max-width: 100%;
+		margin: 0;
+		.contain-card-login{
+			width: 100%;
+			.home_connect.card.login-responsive{
+				margin-top: 0;
+				width: 100%;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 540px) {
+	//comic-show descriptif
+	.descriptif.responsive{
+		p.paragraph{
+			width: auto;
+			border: none;
+			padding: 0;
+		}
+	}
+	//legal mentions header
+	.contain-header.legal-responsive{
+		ul.nav-comic{
+			flex-direction: column;
+			.slash{
+				display: none;
+			}
+		}
+	}
+
+	//connexion, add user and update
+	.home_connect.card{
+		padding-left: 0;
+		padding-right: 0;
+		form{
+			width: 100%;
+		}
+		.container.modify.users{
+			.card-body.users.responsive{
+				width: 100%;
+			}
+		}
+		.container.modify.user{
+			a.btn-outline.cancel-user.responsive{
+				width: 100%;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 450px) {
+	#sectionListMedia{
+		.modal-delete-media{
+			width: 350px;
+			height: 290px;
+		}
+	}
+}
+
+@media screen and (max-width: 355px) {
+	//connexion, add user and update
+	.container.add-user{
+		form{
+			width: 250px;
+		}
+	}
+	.home_connect.card{
+		.container.modify.user{
+			form{
+				width: 250px;
+			}
+			a.btn-outline.cancel-user.responsive{
+				width: 250px;
+			}
+		}
+		.container.modify.users{
+			width: 100%;
+			.card-body.users.responsive{
+				width: 250px;
+				span{
+					display: none;
+				}
+			}
+		}
+	}
+	.container.login-responsive{
+		.contain-card-login{
+			.home_connect.card.login-responsive{
+				width: 100%;
+				div.card-body{
+					padding: 0;
+					display: flex;
+					justify-content: center;	
+					form{
+						width: 250px;
+					}
+				}
+			}
+		}
+	}
+}

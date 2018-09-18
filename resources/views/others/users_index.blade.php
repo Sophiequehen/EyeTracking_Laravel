@@ -26,7 +26,7 @@ Utilisateurs
                 <div class="container modify users">
                     @csrf
                     @foreach($users as $user)
-                    <div class="card-body users">
+                    <div class="card-body users responsive">
                         @foreach($roles as $role)
                         @if($user->fk_role_id === $role->role_id)
                         <p>{{ $user->name }} / <span>{{ $role->role_rolename }}</span></p>

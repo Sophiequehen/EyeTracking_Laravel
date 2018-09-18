@@ -1,8 +1,8 @@
 
-<div class="container">
+<div class="container login-responsive">
     <div class="row justify-content-center">
-        <div class="">
-            <div class="home_connect card">
+        <div class="contain-card-login">
+            <div class="home_connect card login-responsive">
                 <h1 class="main-title">Eye Tracking</h1>
 
                 <div class="card-body">
@@ -36,8 +36,15 @@
                                 @endif
                             </div>
                         </div>
-
-                        <div class="form-group row mb-0">
+                        <div class="form-group row">
+                            <label for="" class="col-md-4 col-form-label text-md-right"></label>
+                            <div class="col-md-6">
+                                <button type="submit" class="btn-catalogue btn-login responsive">
+                                    {{ __('Connexion') }}
+                                </button>
+                            </div>
+                        </div>
+                      <!--   <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn-catalogue btn-login">
                                     {{ __('Connexion') }}
@@ -47,7 +54,7 @@
                                     {{ __('Mot de passe oublié ?') }}
                                 </a> --}}
                             </div>
-                        </div>
+                        </div> -->
                     </form>
                 </div>
             </div>

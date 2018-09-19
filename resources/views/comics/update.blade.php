@@ -92,7 +92,7 @@ Modifier Bande dessinée
             <p class="label-miniature">Image de la planche (600px/850px) :</p>
             <div class="contain-miniature">
                 <label class="label-browse" id="label-board-image" for="board-image">Parcourir . . .</label>
-                <input class="inputfile" type="file" id="board-image" name="board-image" />
+                <input class="inputfile" type="file" accept="image/*" id="board-image" name="board-image" />
                 <span id="boarduploadurl"></span>
             </div>        
         </div>

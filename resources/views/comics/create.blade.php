@@ -32,7 +32,7 @@ Ajouter Bande dessinée
         <p class="label-miniature">Miniature (600px/850px) :</p>
         <div class="contain-miniature">
             <label class="label-browse" id="label-browse" for="miniature">Parcourir . . .</label>
-            <input class="inputfile" type="file" id="miniature" name="miniature" />
+            <input class="inputfile" accept="image/*" type="file" id="miniature" name="miniature" />
             <span id="fileuploadurl"></span>
         </div>
 

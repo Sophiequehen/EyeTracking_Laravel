@@ -14,7 +14,7 @@
 				<map id="map_object" name="planetmap">
 					<!-- avec/sans media -->
 					@foreach ($areas as $zone) 
-					<area id="map{{ $zone->area_id }}" shape="poly" coords="{{ $zone->area_coord }}" data-maphilight='{"alwaysOn": true,"strokeColor":"0000ff","strokeWidth":2,"fillColor":"0000ff","fillOpacity":0.6}' data-style= "without-media" href="">
+					<area id="map{{ $zone->area_id }}" class="areas-full" shape="poly" coords="{{ $zone->area_coord }}" data-maphilight='{"alwaysOn": true,"strokeColor":"0000ff","strokeWidth":2,"fillColor":"0000ff","fillOpacity":0.6}' data-style= "without-media" href="">
 					@endforeach
 				</map>  
 			</div>
@@ -31,19 +31,28 @@
 
 	@endsection
 	@section('extraJS')
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-	<script type="text/javascript">
-		(function(root, factory) {
-			if (typeof define === 'function' && define.amd) {
-				define(['jquery'], factory);
-			} else {
-				factory(root.jQuery);
-			}
-		})(this, function($) {
-			var has_VML, has_canvas, create_canvas_for, add_shape_to, clear_canvas, shape_from_area,
-			canvas_style, hex_to_decimal, css3color, is_image_loaded, options_from_area;
+	<script type="text/javascript">/*! Image Map Resizer (imageMapResizer.min.js ) - v1.0.7 - 2018-05-01
+ *  Desc: Resize HTML imageMap to scaled image.
+ *  Copyright: (c) 2018 David J. Bradshaw - dave@bradshaw.net
+ *  License: MIT
+ */
 
-			has_canvas = !!document.createElement('canvas').getContext;
+ !function(){"use strict";function a(){function a(){function a(a,d){function e(a){var d=1===(f=1-f)?"width":"height";return c[d]+Math.floor(Number(a)*b[d])}var f=0;j[d].coords=a.split(",").map(e).join(",")}var b={width:l.width/l.naturalWidth,height:l.height/l.naturalHeight},c={width:parseInt(window.getComputedStyle(l,null).getPropertyValue("padding-left"),10),height:parseInt(window.getComputedStyle(l,null).getPropertyValue("padding-top"),10)};k.forEach(a)}function b(a){return a.coords.replace(/ *, */g,",").replace(/ +/g,",")}function c(){clearTimeout(m),m=setTimeout(a,250)}function d(){l.width===l.naturalWidth&&l.height===l.naturalHeight||a()}function e(){l.addEventListener("load",a,!1),window.addEventListener("focus",a,!1),window.addEventListener("resize",c,!1),window.addEventListener("readystatechange",a,!1),document.addEventListener("fullscreenchange",a,!1)}function f(){return"function"==typeof i._resize}function g(a){return document.querySelector('img[usemap="'+a+'"]')}function h(){j=i.getElementsByTagName("area"),k=Array.prototype.map.call(j,b),l=g("#"+i.name)||g(i.name),i._resize=a}var i=this,j=null,k=null,l=null,m=null;f()?i._resize():(h(),e(),d())}function b(){function b(a){if(!a.tagName)throw new TypeError("Object is not a valid DOM element");if("MAP"!==a.tagName.toUpperCase())throw new TypeError("Expected <MAP> tag, found <"+a.tagName+">.")}function c(c){c&&(b(c),a.call(c),d.push(c))}var d;return function(a){switch(d=[],typeof a){case"undefined":case"string":Array.prototype.forEach.call(document.querySelectorAll(a||"map"),c);break;case"object":c(a);break;default:throw new TypeError("Unexpected data type ("+typeof a+").")}return d}}"function"==typeof define&&define.amd?define([],b):"object"==typeof module&&"object"==typeof module.exports?module.exports=b():window.imageMapResize=b(),"jQuery"in window&&(jQuery.fn.imageMapResize=function(){return this.filter("map").each(a).end()})}();
+//# sourceMappingURL=imageMapResizer.map</script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<!-- Script to maphillight, davidlynch.org doesn't work because of the security certificate expired, and when the script is minified, it doesn't work -->
+<script type="text/javascript">
+	(function(root, factory) {
+		if (typeof define === 'function' && define.amd) {
+			define(['jquery'], factory);
+		} else {
+			factory(root.jQuery);
+		}
+	})(this, function($) {
+		var has_VML, has_canvas, create_canvas_for, add_shape_to, clear_canvas, shape_from_area,
+		canvas_style, hex_to_decimal, css3color, is_image_loaded, options_from_area;
+
+		has_canvas = !!document.createElement('canvas').getContext;
 
 	// VML: more complex
 	has_VML = (function() {
@@ -401,21 +410,18 @@ $.fn.maphilight.defaults = {
 		shadowFrom: false
 	};
 });
-</script>
-<script type="text/javascript">
 
+</script>
+<!-- <script type="text/javascript" src="/js/imageMapResizer.min.js"></script> -->
+<script type="text/javascript">
+	console.log('test resize');
+	imageMapResize();
 	$('.map').maphilight();
 
 	var tabMedias = {!! json_encode($medias->toArray()) !!};
 	var tabAreas = {!! json_encode($areas->toArray()) !!};
-
-	console.log(tabMedias);
-	console.log(tabAreas);
-
+	
 	Object.keys(tabAreas).forEach(function(area){
-
- // var value = obj[key];
-	// tabAreas.forEach(function(area){
 		tabMedias.forEach(function(media){
 
 
@@ -445,5 +451,6 @@ $.fn.maphilight.defaults = {
 			};
 		});
 	});
+
 </script>
 @endsection

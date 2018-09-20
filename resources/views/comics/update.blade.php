@@ -18,7 +18,7 @@ Modifier Bande dessinée
 
 @endif
 <div class="contain-header">
-    <div class="header-comic">
+    <div class="header-comic comic-update-responsive">
         <section class="page-titles">
             <h2>Modifier la Bande Dessinée</h2>
             <p>/</p>
@@ -34,7 +34,7 @@ Modifier Bande dessinée
     </div>
 </div>
 
-<div class="container modify">
+<div class="container modify comic-update-responsive">
     <form id="informations" method="POST" enctype="multipart/form-data" action="{{ action('ComicsController@update', [$comic->comic_id]) }}">
         @csrf
 

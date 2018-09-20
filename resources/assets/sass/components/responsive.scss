@@ -1,3 +1,27 @@
+@media screen and (max-width: 945px) {
+	body{
+		overflow-x: hidden;
+	}
+	//comic-show
+	img.comic-show-responsive{
+		margin-top: 70px;
+		width: 185px;
+		height: 278px;
+	}
+	//comic-update
+	div.header-comic.comic-update-responsive{
+		width: 100%;
+		ul{
+			width: 100%;
+		}
+	}
+	div.container.modify.comic-update-responsive{
+		form{
+			width: 100%;
+		}
+	}
+}
+
 @media screen and (max-width: 767px) {
 	//navbar under logo
 	#navbar{

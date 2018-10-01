@@ -1,8 +1,21 @@
-
 <div class="container login-responsive">
     <div class="row justify-content-center">
         <div class="contain-card-login">
             <div class="home_connect card login-responsive">
+                <div id="logo-eyes">
+                    <div class='eyes-logo-container'>
+                        <div class="left">
+                            <div class="lashes"></div>
+                            <div class='eye'></div>
+                            <div class='eyeclosed'></div>
+                        </div>
+                        <div class="right">
+                            <div class="lashes"></div>
+                            <div class='eye'></div>
+                            <div class='eyeclosed'></div>
+                        </div>
+                    </div>
+                </div>
                 <h1 class="main-title">Eye Tracking</h1>
 
                 <div class="card-body">

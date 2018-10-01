@@ -6,5 +6,7 @@ if(document.URL.includes('medias/create')){
 		var filePath = document.getElementById("media").value;
 		var newPath = filePath.replace(/C:\\fakepath\\/i, '');
 		path.innerHTML = newPath;
+		var extension = newPath.split('.')[1];
+		console.log(extension);
 	});
 }

@@ -26,7 +26,7 @@ BD - {{ $comic->comic_title }}
 <section class="boards-index comic-show-responsive">
 	<div class="gallery-boards">
 		@if(count($boards) == 0)
-		<p>Pas encore de planche</p>
+		<p class="notyet">Aucune planche disponible pour l'instant</p>
 		@endif
 		@foreach($boards as $board)
 		<div class="small-card">

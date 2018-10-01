@@ -1,6 +1,3 @@
-ul.nav-comic.legal{
-}
-
 .container.legal {
 	font-family: $main-font;
 	// width: 51%;
@@ -46,5 +43,28 @@ ul.nav-comic.legal{
 					width: 152px;
 				}
 			}
+		}
+	}
+
+	.intellectuelle{
+		text-align: center;
+		p{
+			font-family: $main-font;
+		}
+		p.nomargin, p.intellect-display{
+			margin: 0;
+		}
+		p.intellect-display{
+			font-family: $display-font;
+			font-size: 1rem;
+		}
+	}
+	.container-hebergement{
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		.hebergement{
+			width: 631px;
+			text-align: center;
 		}
 	}

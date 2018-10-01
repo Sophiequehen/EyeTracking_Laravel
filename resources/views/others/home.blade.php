@@ -56,15 +56,16 @@ Accueil
             @endforeach
           </section>  
           <!-- TO SEE BD CREATED BY THE CONNECTED ADMIN -->
-          @if(Auth::check() && Auth::user()->fk_role_id === 3 || Auth::check() && Auth::user()->fk_role_id === 1) 
+          @if(Auth::check() && Auth::user()->fk_role_id === 3 || Auth::check() && Auth::user()->fk_role_id === 1)  
           <section class="page-titles">
             <h2>Vos bandes dessinées</h2>
             <p>/</p>
           </section>
-
           <section class="containers_catalog">
             @foreach ($comics_all as $comic)
             @if(Auth::check() && $comic->fk_user_id === Auth::user()->id) 
+            <!-- to see if authentified user has bd or if it need a message -->
+            @php ($comic_by = true)
             <article class="comics_catalog">
               <a href="{{ route('comics_show', $comic->comic_id) }}">
                 @if($comic->comic_publication === 1)
@@ -89,6 +90,11 @@ Accueil
             </article>
             @endif
             @endforeach
+
+            @if($comic_by == false)     
+            <p class="notyet">Vous n'avez pas encore ajouté de bande dessinée</p>
+            @endif
           </section>
+
           @endif
           @endsection

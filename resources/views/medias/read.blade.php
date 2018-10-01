@@ -110,6 +110,7 @@ Liste des médias
 
 			@foreach ($medias_all as $media)
 			@if(Auth::check() && Auth::user()->id === $media->fk_user_id)
+			@php ($media_by = true)
 			<article class="comics_catalog">
 
 				@if ($media->media_type == 'img')
@@ -150,6 +151,9 @@ Liste des médias
 			</article>
 			@endif
 			@endforeach
+			@if($media_by == false)     
+			<p class="notyet">Vous n'avez pas encore ajouté de média</p>
+			@endif
 		</div>
 		@endif
 

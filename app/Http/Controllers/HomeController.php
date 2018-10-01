@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 use App\Comic;
 use App\User;
 
@@ -32,11 +33,12 @@ class HomeController extends Controller
     public function index()
     {   
         $users = User::all();
+        $comic_by = false;
         $comics_all = Comic::all();
         $comics = Comic::all()->where('comic_publication',1);
         $comics_last = Comic::all()->where('comic_publication',1)->sortByDesc('created_at')->take(3);
 
-        return view('others.home', ['comics_all' => $comics_all,'comics' => $comics,'comics_last' => $comics_last,'users' => $users]);
+        return view('others.home', ['comic_by' => $comic_by, 'comics_all' => $comics_all,'comics' => $comics,'comics_last' => $comics_last,'users' => $users]);
     }
 
     /**

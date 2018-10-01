@@ -98,12 +98,12 @@ class MediasController extends Controller
 		->where('media_path',$medias-> media_path);
 
 		if(count($verif_media)>0){
-			//media already present, abort.
-			// return redirect()->route('medias')->with('duplicate','Le média existe déjà.');
+			// media already present, abort.
+			return redirect()->route('medias')->with('duplicate','Le média existe déjà.');
 		}else{
 			//success
-			// $medias->save();
-			// return redirect()->route('medias')->with('add','Media correctement ajouté.');
+			$medias->save();
+			return redirect()->route('medias')->with('add','Media correctement ajouté.');
 		}
 	}
 

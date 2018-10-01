@@ -5,3 +5,4 @@ tests
 .cache
 bootstrap/cache
 *.scss
+app/config/app

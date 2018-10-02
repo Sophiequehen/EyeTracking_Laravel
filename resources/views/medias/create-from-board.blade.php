@@ -45,7 +45,7 @@ Ajouter un média
 <form class="add-media-responsive" method="POST" enctype="multipart/form-data" action="{{ action('MediasController@storeFromBoard', [$comic->comic_id, $board->board_id]) }}" >
     @csrf
     <section class="page-titles">
-        <h2>Ajouter un média maggle</h2>
+        <h2>Ajouter un média</h2>
         <p>/</p>
     </section>
 

@@ -6,3 +6,5 @@ tests
 bootstrap/cache
 *.scss
 app/config/app
+storage
+public/storage

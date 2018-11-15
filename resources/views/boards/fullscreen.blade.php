@@ -416,7 +416,7 @@ $.fn.maphilight.defaults = {
 <script type="text/javascript">
 	console.log('test resize');
 	imageMapResize();
-	$('.map').maphilight();
+	
 
 	var tabMedias = {!! json_encode($medias->toArray()) !!};
 	var tabAreas = {!! json_encode($areas->toArray()) !!};

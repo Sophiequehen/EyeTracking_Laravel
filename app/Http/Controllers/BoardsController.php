@@ -48,7 +48,11 @@ class BoardsController extends Controller
         $medias = Media::all();
         $areas = Area::all()->where('fk_board_id', $idPage); 
 
-        return view('boards.fullscreen', ['comic' => $comic, 'medias' => $medias, 'areas' => $areas, 'board' => $board, 'users' => $users]);
+        $allboards = Board::all()->where('fk_comic_id', $idBD);
+        $nextboard = Board::all()->where('fk_comic_id', $idBD)->where('board_number', $board->board_number + 1)->first();
+        $previousboard = Board::all()->where('fk_comic_id', $idBD)->where('board_number', $board->board_number - 1)->first();
+
+        return view('boards.fullscreen', ['comic' => $comic, 'medias' => $medias, 'areas' => $areas, 'board' => $board, 'users' => $users, 'allboards' => $allboards, 'nextboard' => $nextboard, 'previousboard' => $previousboard]);
     }
 
     /**

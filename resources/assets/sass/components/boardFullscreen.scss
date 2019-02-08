@@ -9,8 +9,27 @@
 }
 
 .board-fullscreen{
+	img{
+		cursor: url(/img/cursor.png), pointer;
+	}
 	div.card-body.area{
 		padding: 0;
+		.board-pagination{
+			img{
+				position: fixed;
+				cursor: pointer;
+				width: 30px;
+				height: 30px;
+				margin-top: 50vh;
+			}
+		}
+		.board-pagination.before{
+			margin-right: 800px;
+		}
+		.board-pagination.next{
+			margin-left: 800px;
+		}
+
 		.exit-fullscreen{
 			color: $main-color;
 			position: fixed;
@@ -18,7 +37,7 @@
 			right: 20px;
 		}
 		.areas-full{
-			cursor: pointer;
+			cursor: url(/img/cursor.png), pointer;
 
 		}
 		img{

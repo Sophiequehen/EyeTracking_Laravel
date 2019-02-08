@@ -9,6 +9,13 @@
 	<div class="container modify board-fullscreen">
 		<div class="card-body area">
 			<div id="imgModif">
+				@if ($board->board_number < count($allboards))
+				<div class="board-pagination next"><a href="{{ route('board-fullscreen',[$comic->comic_id, $nextboard->board_id]) }}"><img src="/img/next-yellow.png"></a></div>
+				@endif
+				@if ($board->board_number !== 1)
+				<div class="board-pagination before"><a href="{{ route('board-fullscreen',[$comic->comic_id, $previousboard->board_id]) }}"><img src="/img/previous-yellow.png"></a></div>
+				@endif
+
 				<a id="exit-fullscreen" class="exit-fullscreen" href="{{ route('board-edit',[$comic->comic_id, $board->board_id]) }}"><i class="material-icons">close</i></a>
 				<img id="background_map" src="{{ $board->board_image }}" alt="Planets" usemap="#planetmap" class="map">
 				<map id="map_object" name="planetmap">
@@ -414,7 +421,7 @@ $.fn.maphilight.defaults = {
 </script>
 <!-- <script type="text/javascript" src="/js/imageMapResizer.min.js"></script> -->
 <script type="text/javascript">
-	console.log('test resize');
+	// console.log('test resize');
 	imageMapResize();
 	
 
@@ -430,14 +437,9 @@ $.fn.maphilight.defaults = {
 			var zoneId = tabAreas[area].area_id;
 			var zoneMediaId = tabAreas[area].fk_media_id;
 
-			// console.log(zone);
-
 			if(mediaId === zoneMediaId){
-				console.log('media'+mediaId);
-				console.log('zone'+zoneId);
-
-				// console.log(mediaId);
-				// console.log(zoneId);
+				// console.log('media'+mediaId);
+				// console.log('zone'+zoneId);
 
 				var test = "test_" + mediaId;
 				$( "#map" + zoneId ).hover(function() {

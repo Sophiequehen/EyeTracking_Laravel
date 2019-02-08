@@ -136,8 +136,9 @@ Modifier Bande dessinée
     var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
     $('.delete-liste-planches').each(function(){
         var idBoard = $(this)[0].children[0].attributes.id.value;
-        $('.delete-liste-planches').click(function(event){
+        $(this).click(function(event){
             event.preventDefault();
+            console.log(idBoard);
             $('.modal-delete-board').toggle();
             $('#delete-board').html('<a href="/boards/delete/'+idBoard+'">SUPPRIMER</a>');
         })

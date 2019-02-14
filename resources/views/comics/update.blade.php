@@ -116,9 +116,9 @@ Modifier Bande dessinée
                 <a href="{{ route('board-edit',[$comic->comic_id, $board->board_id]) }}">
                     <img src="{{ $board->board_image }}">
                     <p>Planche {{ $board->board_number }}</p>
-                    @if(Auth::check() && $comic->fk_user_id === Auth::user()->id || Auth::check() && Auth::user()->fk_role_id === 3) 
+                    <!-- @if(Auth::check() && $comic->fk_user_id === Auth::user()->id || Auth::check() && Auth::user()->fk_role_id === 3) 
                     <a href="" class="delete-liste-planches"><button id="{{ $board->board_id }}">Supprimer</button></a>
-                    @endif
+                    @endif -->
                 </a>
             </div>
             @endforeach
